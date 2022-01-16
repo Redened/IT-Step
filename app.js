@@ -15,7 +15,7 @@ document.querySelector("form").addEventListener("submit", function (X) {
 
   task.innerHTML = `
   <div class="row my-4" id="task${taskIndex}">
-  <span class="m-2"><span class="me-2">${taskIndex}. </span> ${taskTimestamp}</span>
+  <span class="m-2">${taskTimestamp}</span> 
   <div class="col-9 bg-light d-flex align-items-center p-3">
   <h4 class="m-0">${taskInput}</h4> 
   </div>
@@ -42,8 +42,7 @@ document.querySelector("form").addEventListener("submit", function (X) {
     .addEventListener("click", function () {
       document.querySelector("#taskInput").value = taskInput;
       document.querySelector("#taskInput").focus();
-      document.querySelector("#task" + this.value).remove();
-      taskIndex--;
+      document.querySelector("#task" + this.value);
       taskCount.innerHTML = `${taskIndex} ${taskWord()}`;
     });
 });
