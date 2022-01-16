@@ -43,6 +43,7 @@ document.querySelector("form").addEventListener("submit", function (X) {
       document.querySelector("#taskInput").value = taskInput;
       document.querySelector("#taskInput").focus();
       document.querySelector("#task" + this.value).remove();
+      taskIndex--;
       taskCount.innerHTML = `${taskIndex} ${taskWord()}`;
     });
 });
