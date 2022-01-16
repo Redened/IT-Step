@@ -42,7 +42,7 @@ document.querySelector("form").addEventListener("submit", function (X) {
     .addEventListener("click", function () {
       document.querySelector("#taskInput").value = taskInput;
       document.querySelector("#taskInput").focus();
-      document.querySelector("#task" + this.value);
+      document.querySelector("#task" + this.value).remove();
       taskCount.innerHTML = `${taskIndex} ${taskWord()}`;
     });
 });
