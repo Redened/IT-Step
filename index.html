@@ -17,7 +17,7 @@
     <title>JS</title>
 
     <style>
-      .container1 {
+      /* .container1 {
         margin: 0 auto;
         display: flex;
         flex-direction: column;
@@ -57,12 +57,34 @@
       .buttons {
         display: flex;
         justify-content: center;
+      } */
+
+      
+      .container1 {
+        display: flex;
+        min-height: 100vh;
+        justify-content: center;
+        align-items: center;
+      }
+      #black {
+        display: flex;
+        transition: all 0.5s;
+        height: 70vh;
+        justify-content: center;
+        align-items: center;
+      }
+      #red {
+        display: flex;
+        transition: all 0.5s;
+        height: 70vh;
+        justify-content: center;
+        align-items: center;
       }
     </style>
   </head>
 
   <body>
-    <div class="container1">
+    <!-- <div class="container1">
       <div class="heading">
         <h3 data-id="1">Home</h1>
         <h3 data-id="2">About</h1>
@@ -92,46 +114,62 @@
             harum repellendus!
           </p>
         </div>
-    </div>
-
-    <div class="container2">
+    </div> -->
+    <!-- <div class="container2">
       <div id="p1">
         <img data-img="1" src="p1.jpg">
         <img data-img="2" class="toggle" src="p2.jpg">
         <img data-img="3" class="toggle" src="p3.jpg">
       </div>
-    </div>
-
-    <div class="buttons">
+    </div> -->
+    <!-- <div class="buttons">
       <button data-btn="1">1</button>
       <button data-btn="2">2</button>
       <button data-btn="3">3</button>
+    </div> -->
+
+    <div class="container1">
+      <div id="black" class="col-5 bg-danger"><button id="switch" class="btn btn-dark">Switch</button></div>
+      <div id="red" class="col-5 bg-dark"><button id="switchback" class="btn btn-danger">Switch Back</button></div>
     </div>
+    
+    
 
     <script>
-      document.querySelectorAll("h3").forEach((variable) => {
-        let constant = document.querySelector(`[data-value="${variable.getAttribute("data-id")}"]`);
-        variable.addEventListener("click", function () {
-          document
-            .querySelectorAll("[data-value]")
-            .forEach(function (variable) {
-              variable.classList.add("toggle");
-            });
-          constant.classList.remove("toggle");
-        });
+      document.getElementById("switch").addEventListener("click", function() {
+        document.getElementById("black").style.transform = 'Translate(100%, 0)';
+        document.getElementById("red").style.transform = 'Translate(-100%, 0)';
+      });
+      document.getElementById("switchback").addEventListener("click", function() {
+        document.getElementById("black").style.transform = 'Translate(0, 0)';
+        document.getElementById("red").style.transform = 'Translate(0, 0)';
       });
 
-      document.querySelectorAll("button").forEach((variable) => {
-        let constant = document.querySelector(`[data-img="${variable.getAttribute("data-btn")}"]`);
-        variable.addEventListener("click", function () {
-          document
-            .querySelectorAll('[data-img]')
-            .forEach(function (variable) {
-              variable.classList.add("toggle")
-            });
-          constant.classList.remove("toggle")           
-        });
-      });
+
+      // document.querySelectorAll("h3").forEach((variable) => {
+
+      //   let constant = document.querySelector(`[data-value="${variable.getAttribute("data-id")}"]`);
+      //   variable.addEventListener("click", function () {
+      //     document
+      //       .querySelectorAll("[data-value]")
+      //       .forEach(function (variable) {
+      //         variable.classList.add("toggle");
+      //       });
+      //     constant.classList.remove("toggle");
+      //   });
+      // });
+
+      // document.querySelectorAll("button").forEach((variable) => {
+      //   let constant = document.querySelector(`[data-img="${variable.getAttribute("data-btn")}"]`);
+      //   variable.addEventListener("click", function () {
+      //     document
+      //       .querySelectorAll('[data-img]')
+      //       .forEach(function (variable) {
+      //         variable.classList.add("toggle")
+      //       });
+      //     constant.classList.remove("toggle")
+      //   });
+      // });
     </script>
   </body>
 </html>
