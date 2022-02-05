@@ -17,49 +17,6 @@
     <title>JS</title>
 
     <style>
-      /* .container1 {
-        margin: 0 auto;
-        display: flex;
-        flex-direction: column;
-        width: 25rem;
-        margin-bottom: 10rem;
-      }
-
-      .heading {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-around;
-      }
-
-      .heading h3 {
-        cursor: pointer;
-      }
-
-      .toggle {
-        display: none !important;
-      }
-
-      .container2 {
-        background-color: black;
-        margin: 0 auto;
-        display: flex;
-        flex-direction: column;
-        width: 35rem;
-        height: 21.5rem;
-        overflow: hidden;
-        position: relative;
-      }
-
-      .container2 * {
-        position: absolute;
-      }
-
-      .buttons {
-        display: flex;
-        justify-content: center;
-      } */
-
-      
       .container1 {
         display: flex;
         min-height: 100vh;
@@ -84,50 +41,6 @@
   </head>
 
   <body>
-    <!-- <div class="container1">
-      <div class="heading">
-        <h3 data-id="1">Home</h1>
-        <h3 data-id="2">About</h1>
-        <h3 data-id="3">Contact</h1>
-      </div>
-        <div data-value="1" class="">
-          <p>
-            Home Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex
-            nesciunt porro velit illo ea autem provident, totam fuga iure
-            cupiditate adipisci eligendi unde quis doloribus cumque modi quaerat
-            harum repellendus!
-          </p>
-        </div>
-        <div data-value="2" class="toggle">
-          <p>
-            About Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex
-            nesciunt porro velit illo ea autem provident, totam fuga iure
-            cupiditate adipisci eligendi unde quis doloribus cumque modi quaerat
-            harum repellendus!
-          </p>
-        </div>
-        <div data-value="3" class="toggle">
-          <p>
-            Contact Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex
-            nesciunt porro velit illo ea autem provident, totam fuga iure
-            cupiditate adipisci eligendi unde quis doloribus cumque modi quaerat
-            harum repellendus!
-          </p>
-        </div>
-    </div> -->
-    <!-- <div class="container2">
-      <div id="p1">
-        <img data-img="1" src="p1.jpg">
-        <img data-img="2" class="toggle" src="p2.jpg">
-        <img data-img="3" class="toggle" src="p3.jpg">
-      </div>
-    </div> -->
-    <!-- <div class="buttons">
-      <button data-btn="1">1</button>
-      <button data-btn="2">2</button>
-      <button data-btn="3">3</button>
-    </div> -->
-
     <div class="container1">
       <div id="black" class="col-5 bg-danger"><button id="switch" class="btn btn-dark">Switch</button></div>
       <div id="red" class="col-5 bg-dark"><button id="switchback" class="btn btn-danger">Switch Back</button></div>
@@ -144,32 +57,6 @@
         document.getElementById("black").style.transform = 'Translate(0, 0)';
         document.getElementById("red").style.transform = 'Translate(0, 0)';
       });
-
-
-      // document.querySelectorAll("h3").forEach((variable) => {
-
-      //   let constant = document.querySelector(`[data-value="${variable.getAttribute("data-id")}"]`);
-      //   variable.addEventListener("click", function () {
-      //     document
-      //       .querySelectorAll("[data-value]")
-      //       .forEach(function (variable) {
-      //         variable.classList.add("toggle");
-      //       });
-      //     constant.classList.remove("toggle");
-      //   });
-      // });
-
-      // document.querySelectorAll("button").forEach((variable) => {
-      //   let constant = document.querySelector(`[data-img="${variable.getAttribute("data-btn")}"]`);
-      //   variable.addEventListener("click", function () {
-      //     document
-      //       .querySelectorAll('[data-img]')
-      //       .forEach(function (variable) {
-      //         variable.classList.add("toggle")
-      //       });
-      //     constant.classList.remove("toggle")
-      //   });
-      // });
     </script>
   </body>
 </html>
