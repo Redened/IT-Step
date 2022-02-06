@@ -93,9 +93,18 @@
         position: relative;
       }
 
-      #range::-webkit-slider-thumb,
-      #range::-moz-range-thumb {
+      #range::-webkit-slider-thumb {
         -webkit-appearance: none;
+        appearance: none;
+        border: none;
+        width: 12px;
+        height: 25px;
+        background: tomato;
+        cursor: pointer;
+      }
+
+
+      #range::-moz-range-thumb {
         -moz-appearance: none;
         appearance: none;
         border: none;
@@ -167,7 +176,7 @@
       </div>
 
       <div class="section-slider">
-        <div class="slider-tooltip"><h4></h4></div>
+        <div class="slider-tooltip"><h5></h5></div>
         <input type="range" id="range" min="0" max="200" />
       </div>
 
