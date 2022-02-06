@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=2.0" />
+    <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+
+    <style>
+      .div {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        margin: 10rem auto;
+        width: 35rem;
+        height: 30rem;
+        padding: 2.5rem;
+        background-color: antiquewhite;
+      }
+
+      h2 {
+        font-size: 2rem;
+        font-weight: 500;
+        margin-right: 2rem;
+      }
+
+      #bcolor {
+        border: transparent;
+        width: 50px;
+        height: 50px;
+        background: black;
+      }
+
+      .step {
+        width: 50px;
+        height: 50px;
+        border: 2px solid tomato;
+        border-radius: 50%;
+        color: tomato;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding-top: 4px;
+      }
+
+      .active-step {
+        background-color: tomato;
+        color: #fff;
+      }
+
+      .section-step,
+      .section-option,
+      .section-button {
+        display: flex;
+        text-align: center;
+        justify-content: space-around;
+        width: 100%;
+      }
+
+      .option {
+        display: none;
+      }
+
+      .active-option {
+        display: flex !important;
+      }
+
+      .resultbtn {
+        min-width: 15rem;
+        height: 5rem;
+        border: 1px solid transparent;
+        font-size: 2rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+      }
+
+      #range {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        width: 100%;
+        height: 2px;
+        background: tomato;
+        outline: none;
+        position: relative;
+      }
+
+      #range::-webkit-slider-thumb,
+      #range::-moz-range-thumb {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        border: none;
+        width: 12px;
+        height: 25px;
+        background: tomato;
+        cursor: pointer;
+      }
+
+      .ttp {
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        border: 2px solid tomato;
+        border-radius: 50%;
+      }
+
+
+      .section-slider:hover .slider-tooltip {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-top: 4px;
+        color: tomato;
+      }
+
+      .slider-tooltip {
+        display: none;
+        position: absolute;
+        border: 2px solid tomato;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        z-index: 1000;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="div">
+      <div class="section-step">
+        <div>
+          <div class="step active-step"><h4>1</h4></div>
+        </div>
+        <div>
+          <div class="step"><h4>2</h4></div>
+        </div>
+        <div>
+          <div class="step"><h4>3</h4></div>
+        </div>
+      </div>
+
+      <div class="section-option">
+        <div class="option active-option">
+          <h2>Background Color</h2>
+          <input type="color" name="bcolor" id="bcolor" />
+        </div>
+        <div class="option">
+          <h2>Text</h2>
+          <input type="text" name="text" id="text" />
+        </div>
+        <div class="option">
+          <button class="resultbtn"></button>
+        </div>
+      </div>
+
+      <div class="section-button">
+        <button class="btn btn-outline-dark prev">Back</button>
+        <button class="btn btn-dark next">Continiue</button>
+      </div>
+
+      <div class="section-slider">
+        <div class="slider-tooltip"><h4></h4></div>
+        <input type="range" id="range" min="0" max="200" />
+      </div>
+
+    </div>
+
+
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+      integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="//cdn.jsdelivr.net/jquery.color-animation/1/mainfile"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
