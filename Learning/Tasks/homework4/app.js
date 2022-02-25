@@ -1,9 +1,10 @@
-let row = `<div>
+$(document).ready(function () {
+
+  let row = `
+<div>
 <input type="text" size="50" style="margin-bottom: 15px">
 <i style="cursor: pointer" class="bi bi-x-lg p-2 remove"></i>
 </div>`;
-
-$(document).ready(function () {
 
   $(document).on("click", ".add", function () {
     $(".content").append(row);

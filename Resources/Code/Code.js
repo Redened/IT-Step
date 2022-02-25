@@ -354,6 +354,12 @@ for (let constant = 0; constant < arrayName.length; constant++) {
 }
 
 
+
+
+const arrayName = ['arrayElement1', 'arrayElement2', 'arrayElement3', 'arrayElement4', 'arrayElement5'];
+
+let finalResult = '';
+
 arrayName.forEach(functionName);
 
 function functionName(constant) {

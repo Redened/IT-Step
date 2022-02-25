@@ -1,0 +1,276 @@
+//! //////////////////////////////////////////////////////////////////////////////////////////////////
+//! GENERAL STYLES
+//! //////////////////////////////////////////////////////////////////////////////////////////////////
+*,
+*::after,
+*::before,
+p {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "roboto", sans-serif;
+  font-size: 16px;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+.container {
+  max-width: 1935px;
+  margin: auto;
+}
+
+//! //////////////////////////////////////////////////////////////////////////////////////////////////
+//! SCSS STYLES
+//! //////////////////////////////////////////////////////////////////////////////////////////////////
+
+$accent-color: hsl(210, 99%, 49%);
+
+@mixin display-center($direction: row) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: $direction;
+}
+
+//! //////////////////////////////////////////////////////////////////////////////////////////////////
+//! HEADER
+//! //////////////////////////////////////////////////////////////////////////////////////////////////
+header {
+  @include display-center($direction: column);
+  position: relative;
+  background: url(assets/Greece-background1.png);
+  min-height: 58.5rem;
+  background-size: auto;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+//! //////////////////////////////////////////////////////////////////////////////////////////////////
+//! NAVBAR
+//! //////////////////////////////////////////////////////////////////////////////////////////////////
+.navbar {
+  position: absolute;
+  top: 0;
+  width: 100%;
+
+  ul {
+    @include display-center;
+    list-style: none;
+  }
+  
+  li a {
+    text-decoration: none;
+    color: $accent-color;
+  }
+
+  button {
+    padding: 0.5em 1.75em;
+    color: $accent-color;
+    font-size: 1.5rem;
+    font-weight: 400;
+    background-color: #fff;
+    border: none;
+    border-radius: 40px;
+    box-shadow: 0 0 32px hsla(210, 99%, 49%, 0.25);
+  }
+}
+
+//! //////////////////////////////////////////////////////////////////////////////////////////////////
+//! HEADER SECTION
+//! //////////////////////////////////////////////////////////////////////////////////////////////////
+.header-main-section {
+  @include display-center($direction: column);
+
+  img {
+    margin-bottom: 3em;
+  }
+
+  p {
+    margin-bottom: 3em;
+    font-weight: 400;
+    font-size: 1rem;
+    letter-spacing: 2.5px;
+    color: $accent-color;
+  }
+
+  button {
+    padding: 0.75em 1.75em;
+    border: none;
+    border-radius: 40px;
+    font-weight: 400;
+    color: $accent-color;
+    background-color: #fff;
+  }
+}
+
+//! //////////////////////////////////////////////////////////////////////////////////////////////////
+//! OPTIONS SECTION
+//! //////////////////////////////////////////////////////////////////////////////////////////////////
+.main-options-section {
+  @include display-center($direction: column);
+  gap: 2rem;
+  padding: 2.5rem 0;
+  background-color: $accent-color;
+
+  .search {
+    @include display-center;
+    padding: 1rem;
+    border-radius: 50%;
+    color: $accent-color;
+    background-color: #fff;
+    cursor: pointer;
+  }
+
+  .select {
+    @include display-center;
+    gap: 1em;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid hsla(0, 0%, 100%, 0.2);
+    color: #fff;
+    text-align: left;
+    font-family: "roboto", sans-serif;
+    font-weight: 400;
+
+    svg {
+      opacity: 0.25;
+    }
+
+    select {
+      appearance: none;
+      border: none;
+      width: 9rem;
+      background-color: transparent;
+      color: #fff;
+      cursor: pointer;
+
+      &:focus-visible {
+        outline: transparent;
+      }
+    }
+
+    select[name="city"] {
+      width: 18rem;
+    }
+  }
+}
+
+//! //////////////////////////////////////////////////////////////////////////////////////////////////
+//! PLACES SECTION
+//! //////////////////////////////////////////////////////////////////////////////////////////////////
+.main-places-section {
+  .title {
+    margin: 4rem 0rem;
+    color: lightgray;
+    letter-spacing: 3px;
+    font-weight: 400;
+    font-size: 1.2rem;
+    text-align: center;
+  }
+
+  .places-grid {
+    div {
+      position: relative;
+
+      img {
+        width: 100%;
+        height: 100%;
+      }
+
+      p {
+        position: absolute;
+        color: white;
+        bottom: 5%;
+        left: 5%;
+        font-size: 2rem;
+        font-weight: bold;
+      }
+    }
+  }
+
+  .crete-div {
+    @include display-center($direction: column);
+    position: absolute !important;
+    width: 100%;
+    height: 100%;
+    inset: 0;
+
+    p {
+      left: 0 !important;
+      bottom: 0 !important;
+      position: relative !important;
+      font-size: 4rem !important;
+    }
+
+    .crete-buttons {
+      @include display-center;
+      gap: 0.75rem;
+
+      button {
+        margin-top: 0.75em;
+        padding: 0.5em 1.75em;
+        color: white;
+        font-size: 1rem;
+        font-weight: 400;
+        background-color: transparent;
+        border: 1px solid white;
+        border-radius: 40px;
+      }
+    }
+  }
+}
+
+//! //////////////////////////////////////////////////////////////////////////////////////////////////
+//! PLACES SECTION LAYOUT
+//! //////////////////////////////////////////////////////////////////////////////////////////////////
+.places-grid {
+  display: grid;
+  gap: 0.2rem;
+  grid-template-areas:
+    "crete crete"
+    "thessa halki"
+    "athens mykonos"
+    "myrtos meteora";
+
+  .crete {
+    grid-area: crete;
+  }
+  .thessa {
+    grid-area: thessa;
+  }
+  .halki {
+    grid-area: halki;
+  }
+  .athens {
+    grid-area: athens;
+  }
+  .mykonos {
+    grid-area: mykonos;
+  }
+  .meteora {
+    grid-area: meteora;
+  }
+  .myrtos {
+    grid-area: myrtos;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .main-options-section {
+    flex-direction: row;
+  }
+
+  .places-grid {
+    gap: 1.5rem;
+    grid-template-areas:
+      "thessa   thessa   crete    crete   athens   athens"
+      "halki    halki    crete    crete   mykonos  mykonos"
+      "meteora  meteora  meteora  myrtos  myrtos   myrtos"
+      ".        .        .        .       .        .";
+  }
+}
