@@ -258,7 +258,7 @@ arrayName.join(separatorCharacter) //* converts array to string with specified s
 arrayName.shift(); //* removes and returns the first element from the array, shifts the index of all subsequent elements down
 arrayName.unshift(); //* adds a new element to the array and returns the new array length, shifts the index of all elements up
 
-arrayName.delete(); //* removes the specified element from the array and makes its index underfined
+arrayName.delete(); //* removes the specified element from the array and makes its index undefined
 
 arrayName.concat(arrayName2, arrayName3, 'newArrayElement', 'newArrayElement'); //* concatenates arrays and creates a new array, strings are also allowed
 
@@ -269,6 +269,9 @@ arrayName.slice(startIndex, endIndex); //* slices out and creates a new array wi
 arrayName.sort(); //* sorts the array alphabetically, does not work with numbers
 
 arrayName.reverse(); //* reverses the elements in the array
+
+
+
 
 arrayName.sort(function(a, b) {return a - b;}); //* sorts the numbers in the array in ascending order, if b - a is used the order will be reversed
 arrayName[0] //* lowest value in the array
