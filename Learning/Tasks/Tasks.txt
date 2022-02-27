@@ -1,12 +1,13 @@
 1) შევქმნათ home.html გვერდი შემოვიტანოთ jquery და bootstrap (navbar)
+
 2) navbar ექნება 4 ლინკი   
 
    -- ჩვენ შესახებ
    -- კონტაქტი
    -- პროდუქცია
    -- სიახლეები
-3) ყველა ლინკს უნდა შევუყქმნათ შესაბამისი html გვერდი მაგ(about.html, contact.html)
 
+3) ყველა ლინკს უნდა შევუყქმნათ შესაბამისი html გვერდი მაგ(about.html, contact.html)
 
 
 4) მენიუს ლინკზე დაჭერის დროს უნდა იგზავნებოდეს ajax request დაბრუნებული html რესფონსი უნდა გამოვიტანოთ
@@ -21,13 +22,13 @@ http://4.bp.blogspot.com/-eyZIjV3X2f8/U0IQe7eR4tI/AAAAAAAAFms/a7x356wO2zw/s1600/
 
 
 
-   slider.js
+slider.js
 
-   Lightbox შეგიძლიათ შემოიტანოთ ნებისმიერი
+Lightbox შეგიძლიათ შემოიტანოთ ნებისმიერი
 
-   Magnify.JS (არ ამიხსნია თუ შეძლებთ შემოიტანეთ)
+Magnify.JS (არ ამიხსნია თუ შეძლებთ შემოიტანეთ)
 
-   range slider (https://codepen.io/jeee/pen/abzVBmL შპარგალკა :დ)
+range slider (https://codepen.io/jeee/pen/abzVBmL შპარგალკა :დ)
 
 
 

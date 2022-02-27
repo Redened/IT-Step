@@ -136,23 +136,7 @@ $(document).ready(function () {
       $(this).parent().parent().find(".next").prop("disabled", false);
     }
 
-    if (
-      $(this).parent().parent().parent().attr("data-id") == questions.length - 1) {
-
-      $(this)
-        .parent()
-        .parent()
-        .find(".next")
-        .on("click", function () {
-          $(".card").removeClass("shown");
-          $(".div").append(`
-        <div class="my-5">
-          <h2>Questions: ${questions.length}</h2>
-          <h2>Correct: ${result.filter(Boolean).length}</h2>
-          <h2>Incorrect: ${questions.length - result.filter(Boolean).length}</h2>
-        </div>`);
-        });
-    }
+    
   });
 
   //! ///////////////////////////// NEXT BUTTON
@@ -176,6 +160,20 @@ $(document).ready(function () {
         for (i = 0; i < answers.length; i++) {
           result.push(answers[i] == userAnswers[i]);
         }
+
+        $(this)
+        .parent()
+        .parent()
+        .find(".next")
+        .on("click", function () {
+          $(".card").removeClass("shown");
+          $(".div").append(`
+        <div class="my-5">
+          <h2>Questions: ${questions.length}</h2>
+          <h2>Correct: ${result.filter(Boolean).length}</h2>
+          <h2>Incorrect: ${questions.length - result.filter(Boolean).length}</h2>
+        </div>`);
+        });
     }
   });
 
