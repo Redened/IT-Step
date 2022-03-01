@@ -17,10 +17,28 @@ http://4.bp.blogspot.com/-eyZIjV3X2f8/U0IQe7eR4tI/AAAAAAAAFms/a7x356wO2zw/s1600/
 
 
 
+javascript:
+
+---
+AJAX
+
+Fetch API 
+
+Json 
+
+local/session Storage
+
+Class
+
+Module
+---
 
 
 
 
+//////////////////////////////////////////  PLUGINS
+
+swiper.js 
 
 slider.js
 
@@ -31,6 +49,7 @@ Magnify.JS (არ ამიხსნია თუ შეძლებთ შე�
 range slider (https://codepen.io/jeee/pen/abzVBmL შპარგალკა :დ)
 
 
+  
 
 
 
@@ -38,6 +57,7 @@ range slider (https://codepen.io/jeee/pen/abzVBmL შპარგალკა :�
 
 
 
+//////////////////////////////////////////  ANIMATED TEXT
 
 
 https://i.gifer.com/4yN9.gif
@@ -49,22 +69,31 @@ https://i.gifer.com/4yN9.gif
 
 
 
-
+//////////////////////////////////////////  SCREEN COORDINATES
 
 
 https://s3.amazonaws.com/revue/items/images/003/171/671/original/ghost-to-solid-colour-nav-bar-on-scroll.gif?1530704357
 
 
 
-2) შევქმნათ html კომპონენტი რომელსაც css keyframe მეშვეობით გავუკეთებთ ანიმაციას , კომპონენტი უნდა იყოს 
-   აბსოლუტი უნდა ქონდეს სიგანე სიმაღლე და ფერი , ანიმაციის მეშვეობით უნდა გადაადგილდებოდეს html დოკუმენტში
-   ქაოტურად,
+შევქმნათ html კომპონენტი რომელსაც css keyframe მეშვეობით გავუკეთებთ ანიმაციას , კომპონენტი უნდა იყოს 
+აბსოლუტი უნდა ქონდეს სიგანე სიმაღლე და ფერი , ანიმაციის მეშვეობით უნდა გადაადგილდებოდეს html დოკუმენტში
+ქაოტურად,
 
-3) შევქმნათ ჯავასკრიფტის ფუნქცია რომელიც კლიკის დროს გადაამოწმებს იმყოფება თუ არა კლიკი მოცემული კოპონენტის შიგნით
- თუ იმყოფება შევცვალოთ მისი ფერი
+შევქმნათ ჯავასკრიფტის ფუნქცია რომელიც კლიკის დროს გადაამოწმებს იმყოფება თუ არა კლიკი მოცემული კოპონენტის შიგნით
+თუ იმყოფება შევცვალოთ მისი ფერი
 
 აუცილებელი პირობაა! კლიკის ივენთი იყოს document ობიექტზე 
+
 გადასამოწმებლად  გამოვიყენოთ 
+
  getBoundingClientRect(), 
  event.clientX;  
  event.clientY;
+
+
+
+
+
+
+
