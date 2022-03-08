@@ -3,16 +3,24 @@
 //! //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //? W3SCHOOLS TUTORIALS
 //? W3SCHOOLS REFERENCES
-//? EXAMPLES 
-//? USAGES 
+//? EXAMPLES
+//? USAGES
+//? WEB DEV SIMPLIFIED
+
+
+
+
+
+
+
+
+
 
 //! VAR
 //? can be reassigned, redeclared, does not have block { } rules.
 
 //! LET CONST
 //? can NOT be reassigned, redeclared, initialized before declaration and has block { } rules - variable declared in {} is isolated.
-
-
 
 /*
 
@@ -120,11 +128,17 @@ var X = 3;
 
 //! /////////////////////////////////////////////
 */
-  
+
+
+
+
 
 //! ////////////////////////////////////////////////////////////////////////////////////////////////
 //! ////////////////////////////////////////////////////////////////////////////////////////////////
 //! ////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
 
 
 var X = 10;
@@ -140,12 +154,18 @@ parseInt(X); //* parses its argument and returns a floating point number, only r
 parseFloat(x); //* parses its argument and returns an integer, only returns the first number in the string
 
 
+
+
+
 //! ////////////////////////////////////////////////////////////////////////////////////////////////
 //! ////////////////////////////////////////////////////////////////////////////////////////////////
 //! ////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-var string = "abc ' \" \\ def";
+
+
+
+var string = "abc \' \" \\ def";
 //! using ' " \ within quotes
 
 string.length; //* length of the string, number of characters
@@ -170,19 +190,24 @@ string.includes(searchValue); //* returns true if searchValue is found
 string.startsWith(searchValue, searchStartCoordinate); //* returns true if string begins with searchValue
 string.endsWith(searchValue, searchEndCoordinate); //* returns true if string ends with searchValue
 
-//! /Value/i case insensitive /Value/g all values //gi both
+//! /Value/i case insensitive /Value/g all values
 //! '' \n new line, connects strings
-//! `` template literal. allows quotes inside strings, multi-line strings. ${} for variables and expressions
 
 
+
+
+
 //! ////////////////////////////////////////////////////////////////////////////////////////////////
 //! ////////////////////////////////////////////////////////////////////////////////////////////////
 //! ////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
 
 
 const array = [arrayElement1, arrayElement2, arrayElement3]; //* array uses numbers to access elements
 //! array indexing starts with 0... 0 is the first element, 1 is the second element.
-//* numbers, strigns, variables, objects and functions can be used in one array.
+//? numbers, strigns, variables, objects and functions can be used in one array.
 
 array[arrayIndex]; //* access array element
 array[index] = newArrayElement; //* defining yet undefined elements of the array will add it to the array at the specified index.
@@ -200,17 +225,55 @@ array.toString(); //* converts array to string with array elements separated by 
 array.join(separatorCharacter); //* converts array to string with specified separator
 
 array.concat(array2, array3, "newArrayElement", "newArrayElement"); //* concatenates arrays and creates a new array
-
 array.splice(insertionIndex, removeElementNumber, "newArrayElement"); //* adds new elements to the array at insertionIndex, may remove elements with removeElementNumber, does not leave undefined indexes when used to remove elements with removeElementNumber
-
 array.slice(startIndex, endIndex); //* slices out and creates a new array with specified array indexes, does not remove elements from the original array
 
 array.sort(); //* sorts the array alphabetically, does not work with numbers
 array.reverse(); //* reverses the elements in the array
 
-array.sort(function (a, b) { return a - b }); //* sorts the numbers in the array in ascending order, if b - a is used the order will be reversed
 
 
+
+array.filter(filterValue); //? function
+
+array.map(mapValue); //? function
+
+array.find(findValue); //? function
+
+array.forEach(forEachValue); //? function
+
+
+
+
+
 //! ////////////////////////////////////////////////////////////////////////////////////////////////
 //! ////////////////////////////////////////////////////////////////////////////////////////////////
 //! ////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+sessionStorage.setItem("name", "value"); //* save in storage
+localStorage.setItem("name", "value"); //* save in storage
+
+sessionStorage.getItem("name"); //* get from storage
+localStorage.getItem("name"); //* get from storage
+
+sessionStorage.removeItem("name"); //* remove from storage
+localStorage.removeItem("name"); //* remove from storage
+
+
+
+
+
+
+//! pageX and pageY:
+//? Relative to the top left of the fully rendered content area in the browser. This reference point is below the URL bar and back button in the upper left. This point could be anywhere in the browser window and can actually change location if there are embedded scrollable pages embedded within pages and the user moves a scrollbar.
+
+//! screenX and screenY:
+//? Relative to the top left of the physical screen/monitor, this reference point only moves if you increase or decrease the number of monitors or the monitor resolution.
+
+//! clientX and clientY:
+//? Relative to the upper left edge of the content area (the viewport) of the browser window. This point does not move even if the user moves a scrollbar from within the browser.
+
+
+//! Element.getBoundingClientRect() method returns a 'DOMRect' object providing information about the size of an element and its position relative to the viewport.

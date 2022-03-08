@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <style>
+        body {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #container {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+        }
+
+        .colortoggle {
+            background-color: mediumseagreen !important;
+        }
+    </style>
+    <body>
+        <div id="container"></div>
+
+        <script>
+            var targetElement = document.getElementById("container");
+
+            document.addEventListener("click", function () {
+                var targetElementCoordinates = targetElement.getBoundingClientRect();
+                if (
+                    event.clientX >= targetElementCoordinates.left &&
+                    event.clientX <= targetElementCoordinates.right &&
+                    event.clientY >= targetElementCoordinates.top &&
+                    event.clientY <= targetElementCoordinates.bottom
+                ) {
+                    targetElement.classList.toggle("colortoggle");
+                }
+            });
+        </script>
+    </body>
+</html>

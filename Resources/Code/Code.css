@@ -14,9 +14,10 @@
     line-height: 0; /*! height between lines in text */
     word-spacing: 0; /*! space between words in text */
 
-    background-color: 0; /*! gradient */
-    background-clip: 0; /*! text; */
-    color: 0; /*! transparent */
+    /*TODO GRADIENT TEXT */
+    background-color: linear-gradient(); /*! gradient */
+    background-clip: text;
+    color: transparent;
 }
 
 .BACKGROUND {
