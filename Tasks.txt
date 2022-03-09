@@ -38,15 +38,11 @@ Module
 
 //////////////////////////////////////////  PLUGINS
 
-swiper.js 
 
-slider.js
-
-Lightbox შეგიძლიათ შემოიტანოთ ნებისმიერი
 
 Magnify.JS (არ ამიხსნია თუ შეძლებთ შემოიტანეთ)
 
-range slider (https://codepen.io/jeee/pen/abzVBmL შპარგალკა :დ)
+
 
 
   
@@ -57,13 +53,6 @@ range slider (https://codepen.io/jeee/pen/abzVBmL შპარგალკა :�
 
 
 
-
-
-
-//////////////////////////////////////////  SCREEN COORDINATES
-
-
-https://s3.amazonaws.com/revue/items/images/003/171/671/original/ghost-to-solid-colour-nav-bar-on-scroll.gif?1530704357
 
 
 

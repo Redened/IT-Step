@@ -277,3 +277,5 @@ localStorage.removeItem("name"); //* remove from storage
 
 
 //! Element.getBoundingClientRect() method returns a 'DOMRect' object providing information about the size of an element and its position relative to the viewport.
+
+//! scrollY property of the Window interface returns the number of pixels that the document is currently scrolled vertically.
