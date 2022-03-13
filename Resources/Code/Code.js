@@ -5,13 +5,16 @@
 //? W3SCHOOLS REFERENCES
 //? EXAMPLES
 //? USAGES
+//? FREECODECAMP
 //? WEB DEV SIMPLIFIED
 
 
 
 
 
-
+//! ////////////////////////////////////////////////////////////////////////////////////////////////
+//! ////////////////////////////////////////////////////////////////////////////////////////////////
+//? VARIABLES
 
 
 
@@ -19,54 +22,68 @@
 //! VAR
 //? can be reassigned, redeclared, does not have block { } rules.
 
-//! LET CONST
+/*
+//! /////////////////////////////////////////////
+
+var X = 2
+console.log(X)      //? returns 2
+
+var X = 4
+console.log(X)      //? returns 4
+
+//! /////////////////////////////////////////////
+
+var X = 10
+console.log(X)      //? returns 10
+
+{
+  var X = 2
+  console.log(X)    //? returns 2
+}
+
+console.log(X)      //? returns 2
+
+//! /////////////////////////////////////////////
+
+{
+  var X = 2  
+}
+
+console.log(X)      //? returns 2
+
+//! /////////////////////////////////////////////
+*/
+
+
+
+//! LET 
+//! CONST
 //? can NOT be reassigned, redeclared, initialized before declaration and has block { } rules - variable declared in {} is isolated.
 
 /*
-
 //! /////////////////////////////////////////////
 
 {
-  const.let X = 2;
-  ! X can NOT be used outside
+  const X = 2; 
+  let X = 2;
 }
 
-{
-  var X = 2;
-  ? X can be used outside
-}
+console.log(X) //? returns error
 
 //! /////////////////////////////////////////////
 
-var X = 10;
+const X = 10;
+let X = 10;
 * Here X is 10
 
 {
-  var X = 2;
-  * Here X is 2
-}
-
-* Here X is 2
-
-//! /////////////////////////////////////////////
-
-const.let X = 10;
-* Here X is 10
-
-{
-  const.let X = 2;
+  const X = 10;
+  let X = 10;
   * Here X is 2
 }
 
 * Here X is 10  
 
-//! /////////////////////////////////////////////
-
-var X = 2;
-* Now X is 2
-
-var X = 3;
-* Now X is 3
 
 //! /////////////////////////////////////////////
 
@@ -136,7 +153,7 @@ var X = 3;
 //! ////////////////////////////////////////////////////////////////////////////////////////////////
 //! ////////////////////////////////////////////////////////////////////////////////////////////////
 //! ////////////////////////////////////////////////////////////////////////////////////////////////
-
+//? NUMBERS 
 
 
 
@@ -160,7 +177,7 @@ parseFloat(x); //* parses its argument and returns an integer, only returns the 
 //! ////////////////////////////////////////////////////////////////////////////////////////////////
 //! ////////////////////////////////////////////////////////////////////////////////////////////////
 //! ////////////////////////////////////////////////////////////////////////////////////////////////
-
+//? STRINGS 
 
 
 
@@ -190,7 +207,7 @@ string.includes(searchValue); //* returns true if searchValue is found
 string.startsWith(searchValue, searchStartCoordinate); //* returns true if string begins with searchValue
 string.endsWith(searchValue, searchEndCoordinate); //* returns true if string ends with searchValue
 
-//! /Value/i case insensitive /Value/g all values
+//! /Value/i case insensitive /Value/g global match, all values
 //! '' \n new line, connects strings
 
 
@@ -200,14 +217,12 @@ string.endsWith(searchValue, searchEndCoordinate); //* returns true if string en
 //! ////////////////////////////////////////////////////////////////////////////////////////////////
 //! ////////////////////////////////////////////////////////////////////////////////////////////////
 //! ////////////////////////////////////////////////////////////////////////////////////////////////
-
+//? ARRAYS 
 
 
 
 
 const array = [arrayElement1, arrayElement2, arrayElement3]; //* array uses numbers to access elements
-//! array indexing starts with 0... 0 is the first element, 1 is the second element.
-//? numbers, strigns, variables, objects and functions can be used in one array.
 
 array[arrayIndex]; //* access array element
 array[index] = newArrayElement; //* defining yet undefined elements of the array will add it to the array at the specified index.
@@ -249,8 +264,12 @@ array.forEach(forEachValue); //? function
 //! ////////////////////////////////////////////////////////////////////////////////////////////////
 //! ////////////////////////////////////////////////////////////////////////////////////////////////
 //! ////////////////////////////////////////////////////////////////////////////////////////////////
+//? STORAGE 
 
 
+
+
+//! data in localStorage doesn't expire, data in sessionStorage is cleared when the page session ends.
 
 sessionStorage.setItem("name", "value"); //* save in storage
 localStorage.setItem("name", "value"); //* save in storage
@@ -261,6 +280,14 @@ localStorage.getItem("name"); //* get from storage
 sessionStorage.removeItem("name"); //* remove from storage
 localStorage.removeItem("name"); //* remove from storage
 
+
+
+
+
+//! ////////////////////////////////////////////////////////////////////////////////////////////////
+//! ////////////////////////////////////////////////////////////////////////////////////////////////
+//! ////////////////////////////////////////////////////////////////////////////////////////////////
+//? PAGE COORDINATES 
 
 
 
@@ -279,3 +306,120 @@ localStorage.removeItem("name"); //* remove from storage
 //! Element.getBoundingClientRect() method returns a 'DOMRect' object providing information about the size of an element and its position relative to the viewport.
 
 //! scrollY property of the Window interface returns the number of pixels that the document is currently scrolled vertically.
+
+
+
+
+
+//! ////////////////////////////////////////////////////////////////////////////////////////////////
+//! ////////////////////////////////////////////////////////////////////////////////////////////////
+//! ////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+//! The JavaScript for in statement loops through the properties of an Object:
+
+
+for (key in object) {
+  //! code block to be executed
+}
+
+const person = {fname:"John", lname:"Doe", age:25};
+
+for (let x in person) {
+  console.log(person[x]);
+}
+
+
+
+
+//! The JavaScript for of statement loops through the values of an iterable object.
+//! It lets you loop over iterable data structures such as Arrays, Strings, Maps, NodeLists, and more
+
+
+for (variable of iterable) {
+  //! code block to be executed
+}
+
+const car = ["BMW", "Volvo", "Mini"];
+
+for (let x of cars) {
+  console.log(x);
+}
+
+let language = "JavaScript";
+
+for (let x of language) {
+  console.log(x);
+}
+
+
+//! The while loop loops through a block of code as long as a specified condition is true.
+
+while (condition) {
+  //! code block to be executed
+}
+
+while (i < 10) {
+  text += "The number is " + i;
+  i++;
+}
+
+const cars = ["BMW", "Volvo", "Saab", "Ford"];
+let i = 0;
+let text = "";
+
+while (cars[i]) {
+  text += cars[i];
+  i++;
+}
+
+
+//! A Map holds key-value pairs where the keys can be any datatype.
+//! A Map remembers the original insertion order of the keys.
+
+
+// new Map()	  Creates a new Map
+// set()      	Sets the value for a key in a Map
+// get()	      Gets the value for a key in a Map
+// delete()     Removes a Map element specified by the key
+// has()      	Returns true if a key exists in a Map
+// forEach()  	Calls a function for each key/value pair in a Map
+// entries()  	Returns an iterator with the [key, value] pairs in a Map
+// size	        Returns the number of elements in a Map
+
+// Create a Map
+const fruit = new Map([
+  ["apples", 500],
+  ["bananas", 300],
+  ["oranges", 200]
+]);
+
+
+// Create a Map
+const fruits = new Map();
+
+// Set Map Values
+fruits.set("apples", 500);
+fruits.set("bananas", 300);
+fruits.set("oranges", 200);
+
+fruits.get("apples");    // Returns 500
+
+fruits.size; // Returns 3 
+
+fruits.delete("apples"); // Removes apples from the map
+
+fruits.has("apples"); // Returns true
+
+
+
+//!                 Object	                                    Map
+// Iterable        	Not directly iterable	                      Directly iterable
+// Size            	Do not have a size property	                Have a size property
+// Key Types      	Keys must be Strings (or Symbols)	          Keys can be any datatype
+// Key Order      	Keys are not well ordered	                  Keys are ordered by insertion
+// Defaults	        Have default keys	                          Do not have default keys
+
