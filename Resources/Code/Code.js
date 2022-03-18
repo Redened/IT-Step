@@ -1,194 +1,327 @@
-//! //////////////////////////////////////////////////////////////////// NOT FINISHED ////////////////////////////////////////////////////////////////////
-//! //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//! //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//? W3SCHOOLS TUTORIALS
-//? W3SCHOOLS REFERENCES
-//? EXAMPLES
-//? USAGES
-//? FREECODECAMP
-//? WEB DEV SIMPLIFIED
+/* 
+! //////////////////////////////////////////////////////////////////// NOT FINISHED ////////////////////////////////////////////////////////////////////
+! //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+? W3SCHOOLS TUTORIALS
+? W3SCHOOLS REFERENCES
+? DEVELOPER MOZILLA MDN
+? EXAMPLES
+? USAGES
+? FREECODECAMP
+? WEB DEV SIMPLIFIED
+*/
+
+
+//TODO ////////////////////////////////////////////////////////////////////////////////////////////////
+//TODO ////////////////////////////////////////////////////////////////////////////////////////////////
+//TODO VARIABLES
 
 
 
 
 
-//! ////////////////////////////////////////////////////////////////////////////////////////////////
-//! ////////////////////////////////////////////////////////////////////////////////////////////////
-//? VARIABLES
-
-
-
-
-//! VAR
-//? can be reassigned, redeclared, does not have block { } rules.
+//TODO VAR
+//? can be initialized and declared separately 
+//? can be reassigned
+//? can be redeclared
+//? can be initialized before declaration. returns undefined
+//? does NOT have block {} rules
 
 /*
-//! /////////////////////////////////////////////
+TODO \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+TODO reassign
 
-var X = 2
+* var X = 2
+console.log(X)       //? returns 2
+
+* X = 8
+console.log(X)       //? returns 8
+
+TODO \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+TODO redeclare
+
+* var X = 2
+console.log(X)       //? returns 2
+
+* var X = 4
+console.log(X)       //? returns 4
+
+TODO \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+TODO initialize
+
+console.log(X)       //? returns undefined
+
+* var X = 2
+
+TODO \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+TODO block {} rules
+
+{
+  * var X = 2  
+}
+
 console.log(X)      //? returns 2
 
-var X = 4
-console.log(X)      //? returns 4
+TODO \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
-//! /////////////////////////////////////////////
-
-var X = 10
+* var X = 10
 console.log(X)      //? returns 10
 
 {
-  var X = 2
+  * var X = 2
   console.log(X)    //? returns 2
 }
 
 console.log(X)      //? returns 2
 
-//! /////////////////////////////////////////////
-
-{
-  var X = 2  
-}
-
-console.log(X)      //? returns 2
-
-//! /////////////////////////////////////////////
+TODO \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 */
 
 
+//TODO LET 
+//? can be initialized and declared separately 
+//? can be reassigned 
+//! can NOT be redeclared.                                 returns error
+//! can NOT be initialized before declaration.             returns error
+//! has block {} rules.                                    returns error
 
-//! LET 
-//! CONST
-//? can NOT be reassigned, redeclared, initialized before declaration and has block { } rules - variable declared in {} is isolated.
+/*
+TODO \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+TODO reassign
+
+* let X = 2
+console.log(X)        //? returns 2
+
+* X = 8
+console.log(X)        //? returns 8
+
+TODO \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+TODO redeclare
+
+* let X = 2
+
+* let X
+* 
+* let X = 4
+
+console.log(X)       //! returns error
+
+TODO \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+TODO initialize
+
+console.log(X)       //! returns error
+
+* let X
+*
+* let X = 2
+
+TODO \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+* let x
+
+console.log(X)      //? returns undefined
+
+* X = 2
+
+TODO \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+TODO block {} rules
+
+{
+  * let X = 2  
+  *
+  * let X  
+  * X = 2
+}
+
+console.log(X)      //! returns error
+
+TODO \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+* let X = 2
+
+{
+  console.log(X)    //? returns 2
+}
+
+TODO \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+* let X = 10
+console.log(X)      //? returns 10
+
+{
+  * let X = 2
+  console.log(X)    //? returns 2
+}
+
+console.log(X)      //? returns 10
+
+
+TODO \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+*/
+
+
+//TODO CONST
+//! MUST be declared immediately after initialization.     returns error
+//! can NOT be reassigned.                                 returns error
+//! can NOT be redeclared.                                 returns error
+//! can NOT be initialized before declaration.             returns error
+//! has block {} rules.                                    returns error
 
 /*
 //! /////////////////////////////////////////////
+TODO declaration after initialization
+
+* const X
+*
+* const X
+* X = 2
+
+console.log(X)        //! returns error
+
+//! /////////////////////////////////////////////
+TODO reassign
+
+* const X = 2
+
+* X = 8
+
+console.log(X)        //! returns error
+
+//! /////////////////////////////////////////////
+TODO redeclare
+
+* const X = 2
+
+* const X
+* 
+* const X = 4
+
+console.log(X)       //! returns error
+
+//! /////////////////////////////////////////////
+TODO initialize
+
+console.log(X)       //! returns error
+
+* const X
+*
+* const X = 2
+
+//! /////////////////////////////////////////////
+TODO block {} rules
 
 {
-  const X = 2; 
-  let X = 2;
+  * const X = 2  
 }
 
-console.log(X) //? returns error
+console.log(X)      //! returns error
 
 //! /////////////////////////////////////////////
 
-const X = 10;
-let X = 10;
-* Here X is 10
+* const X = 2
 
 {
-  const X = 10;
-  let X = 10;
-  * Here X is 2
-}
-
-* Here X is 10  
-
-
-//! /////////////////////////////////////////////
-
-? var X = 2;    // Allowed
-! let X = 3;    // Not allowed
-
-{
-  ? let X = 2;    // Allowed
-  ! let X = 3     // Not allowed
-}
-
-{
-  ? let X = 2;    // Allowed
-  ! var X = 3     // Not allowed
-}
-
-//! /////////////////////////////////////////////
-
-? let.const X = 2;    // Allowed
-
-{
-  ? let.const X = 3;    // Allowed
-}
-
-{
-  ? let.const X = 4;    // Allowed
-}
-
-//! /////////////////////////////////////////////
-
-? var X = 2;      // Allowed
-! const X = 2;    // Not allowed
-
-{
-? let X = 2;      // Allowed
-! const X = 2;    // Not allowed
-}
-
-{
-? const X = 2;    // Allowed
-! const X = 2;    // Not allowed
+  console.log(X)    //? returns 2
 }
 
 //! /////////////////////////////////////////////
 
-? const X = 2;    // Allowed
-! X = 2;          // Not allowed
-! var X = 2;      // Not allowed
-! let X = 2;      // Not allowed
-! const X = 2;    // Not allowed
+* const X = 10
+console.log(X)      //? returns 10
 
 {
-?  const X = 2;   // Allowed
-!  X = 2;         // Not allowed
-!  var X = 2;     // Not allowed
-!  let X = 2;     // Not allowed
-!  const X = 2;   // Not allowed
+  * const X = 2
+  console.log(X)    //? returns 2
 }
+
+console.log(X)      //? returns 10
+
 
 //! /////////////////////////////////////////////
 */
 
 
+//TODO VAR LET CONST
+
+/*
+TODO \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+* var X
+*
+* var X = 2
+
+* let X = 4
+
+console.log(X)      //! returns error
+
+* var X
+*
+* var X = 2
+
+* const X = 4
+
+console.log(X)      //! returns error
+
+TODO \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+* var X = 2
+
+{
+  * const X = 4
+  *
+  * let X = 4
+}
+
+console.log(X)      //! returns error
+
+TODO \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\*/
 
 
 
-//! ////////////////////////////////////////////////////////////////////////////////////////////////
-//! ////////////////////////////////////////////////////////////////////////////////////////////////
-//! ////////////////////////////////////////////////////////////////////////////////////////////////
-//? NUMBERS 
 
 
-
-
-var X = 10;
-X.toString(); //* converts number to string
-
-var X = 9.656;
-X.toFixed(); //* rounds the number
-X.toFixed(2); //* rounds the number and limits the decimals
-
-var X = "10";
-number(X); //* returns a number, converted from its argument.
-parseInt(X); //* parses its argument and returns a floating point number, only returns the first number in the string
-parseFloat(x); //* parses its argument and returns an integer, only returns the first number in the string
+//TODO ////////////////////////////////////////////////////////////////////////////////////////////////
+//TODO ////////////////////////////////////////////////////////////////////////////////////////////////
+//TODO NUMBERS 
 
 
 
 
 
-//! ////////////////////////////////////////////////////////////////////////////////////////////////
-//! ////////////////////////////////////////////////////////////////////////////////////////////////
-//! ////////////////////////////////////////////////////////////////////////////////////////////////
-//? STRINGS 
+var number = 9.656;
+number.toString(); //! converts number to string
+
+// console.log(number.toString()); //? returns "9.656"
+
+
+var string = "9.656";
+Number(string); //! converts string to number
+
+// console.log(Number(number)); //? returns 9.656
+
+
+var number = 9.656;
+number.toFixed(); //! rounds the number
+
+// console.log(number.toFixed()); //? returns 10
+// console.log(number.toFixed(2)); //? returns 9.66
+
+
+parseInt(number); //! accepts strings. returns a floating point number. NO DECIMALS
+parseFloat(number); //! accepts strings. returns an integer number. WITH DECIMALS
 
 
 
 
-var string = "abc \' \" \\ def";
-//! using ' " \ within quotes
 
-string.length; //* length of the string, number of characters
+//TODO ////////////////////////////////////////////////////////////////////////////////////////////////
+//TODO ////////////////////////////////////////////////////////////////////////////////////////////////
+//TODO STRINGS 
 
-string.trim(); //* removes whitespace
-string.toUpperCase() & string.toLowerCase(); //* transform string letters
+
+
+
+
+string.length; //! length of the string
+string.trim(); //! removes whitespace
+string.toUpperCase() & string.toLowerCase(); //! transform string letters
 
 string.str(startCoordinate, length); //* extract part of string.
 string.replace(searchValue, replaceValue); //* replaces value with another value. stops at first value. returns a new string.
@@ -207,17 +340,14 @@ string.includes(searchValue); //* returns true if searchValue is found
 string.startsWith(searchValue, searchStartCoordinate); //* returns true if string begins with searchValue
 string.endsWith(searchValue, searchEndCoordinate); //* returns true if string ends with searchValue
 
-//! /Value/i case insensitive /Value/g global match, all values
-//! '' \n new line, connects strings
-
 
 
 
 
 //! ////////////////////////////////////////////////////////////////////////////////////////////////
 //! ////////////////////////////////////////////////////////////////////////////////////////////////
-//! ////////////////////////////////////////////////////////////////////////////////////////////////
-//? ARRAYS 
+//TODO ARRAYS 
+
 
 
 

@@ -3,22 +3,15 @@
 //! //////////////////////////////////////////////////////////////////////////////////////////////////
 *,
 *::after,
-*::before,
-p,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+*::before {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
 html {
-    font-family: sans-serif;
-    font-size: 16px;
+    font-family: "roboto", sans-serif;
+    font-size: 14px;
 }
 
 img {
@@ -30,15 +23,27 @@ button {
     cursor: pointer;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    margin: 0;
+    padding: 0;
+}
+
 //! //////////////////////////////////////////////////////////////////////////////////////////////////
 //! SCSS STYLES
 //! //////////////////////////////////////////////////////////////////////////////////////////////////
 
-@mixin flex($justify: center, $direction: row, $align: center) {
+@mixin flex($J: center, $D: row, $A: center, $G: 0rem) {
     display: flex;
-    align-items: $align;
-    justify-content: $justify;
-    flex-direction: $direction;
+    align-items: $A;
+    justify-content: $J;
+    flex-direction: $D;
+    gap: $G;
 }
 
 $theme-color-red: #ff3c40;
@@ -47,6 +52,7 @@ $theme-color-red-active: #ff2225;
 $theme-color-blue: #0079fe;
 $theme-color-blue-hover: #268fff;
 $theme-color-blue-active: #0048fe;
+$theme-color-gray: #c6c6c6;
 
 //! //////////////////////////////////////////////////////////////////////////////////////////////////
 //! HEADER
@@ -55,39 +61,35 @@ $theme-color-blue-active: #0048fe;
 header {
     @include flex;
     position: relative;
-    background: url(assets/truck-12.jpg);
-    min-height: 75rem;
-    background-size: auto;
-    background-repeat: no-repeat;
-    background-position: center center;
+    background: url(assets/Header-bg.jpg) center/cover no-repeat;
+    min-height: 40rem; // 75rem
     color: #fff;
-    z-index: 1;
+    fill: #fff;
+    z-index: 0;
 
     &::before {
         content: "";
         position: absolute;
         inset: 0;
-        width: 100%;
-        height: 100%;
         background: linear-gradient(to right, hsla(0, 0%, 0%, 1) 13.75%, hsla(0, 0%, 0%, 0));
         z-index: -1;
     }
 
+    //! //////////////////////////////////////////////////////////////////////////////////////////////////
+    //! HEADER NAV
+    //! //////////////////////////////////////////////////////////////////////////////////////////////////
+
     .header-nav {
-        @include flex($justify: space-between);
+        @include flex($J: space-between);
         position: absolute;
         top: 0;
         width: 100%;
         border-bottom: 1px solid gray;
 
-        svg {
-            fill: #fff;
-        }
-
         .nav-logo-links-socials {
-            @include flex($justify: space-between);
+            @include flex($J: space-between);
             width: 72.5%;
-            padding: 1rem 2.5rem;
+            padding: 0.8rem 2.5rem;
 
             .nav-logo {
                 font-size: 2rem;
@@ -115,9 +117,9 @@ header {
                 list-style: none;
 
                 a {
-                    color: #fff;
                     text-decoration: none;
-                    font-weight: bold;
+                    // font-weight: bold;
+                    color: #fff;
 
                     &:hover {
                         color: $theme-color-red;
@@ -157,16 +159,20 @@ header {
         }
 
         .nav-info-buttons {
-            @include flex($justify: space-between);
+            @include flex($J: space-between);
             width: 27.5%;
-            padding: 1rem 2.5rem;
+            padding: 0.8rem 2.5rem;
             border-left: 1px solid gray;
 
             .nav-info {
                 @include flex;
                 gap: 1rem;
 
-                .nav-info-svg {
+                span {
+                    font-size: 12px;
+                }
+
+                svg {
                     width: 30px;
                     height: 30px;
                     cursor: pointer;
@@ -182,7 +188,7 @@ header {
             }
 
             .nav-buttons {
-                @include flex($align: stretch);
+                @include flex($A: stretch);
                 gap: 0.5rem;
 
                 button {
@@ -202,7 +208,7 @@ header {
                         background-color: $theme-color-red-active;
                     }
                 }
-                .nav-search {
+                .nav-search-button {
                     @include flex;
                     padding: 0 0.6rem;
                     background-color: $theme-color-blue;
@@ -215,7 +221,7 @@ header {
                         background-color: $theme-color-blue-active;
                     }
 
-                    .nav-search-svg {
+                    svg {
                         width: 20px;
                         height: 20px;
                     }
@@ -224,66 +230,87 @@ header {
         }
     }
 
+    //! //////////////////////////////////////////////////////////////////////////////////////////////////
+    //! HEADER CONTENT
+    //! //////////////////////////////////////////////////////////////////////////////////////////////////
+
     .header-content {
         @include flex;
         width: 60%;
         background-color: hsla(0, 0%, 0%, 0.5);
 
-        .content-read {
-            @include flex($direction: column, $align: flex-start);
-            gap: 1.75rem;
+        .content-read-more {
+            @include flex($D: column, $A: flex-start);
             padding: 0rem 1.75rem;
+            gap: 1rem;
 
-            button {
-                padding: 0.5em 1.5em;
-                color: #fff;
-                font-size: 1rem;
-                font-weight: 400;
-                background-color: $theme-color-red;
-                border: none;
-                border-radius: 1px;
-
-                &:hover {
-                    background-color: $theme-color-red-hover;
-                }
-
-                &:active {
-                    background-color: $theme-color-red-active;
-                }
+            h1 {
+                font-size: 2.5rem;
             }
 
-            a {
-                color: #fff;
-                text-decoration: none;
-            }
-
-            svg {
-                width: 25px;
-                height: auto;
-                fill: #fff;
-                cursor: pointer;
-                margin-left: 1rem;
-                margin-right: 0.5rem;
-
-                &:hover {
-                    fill: $theme-color-red-hover;
-                }
+            p {
+                line-height: 1.5rem;
+                color: hsl(0, 0%, 85%);
             }
 
             div {
                 @include flex;
 
-                &:hover {
-                    fill: $theme-color-red-hover;
+                button {
+                    padding: 0.5em 1.5em;
+                    color: #fff;
+                    font-size: 1rem;
+                    font-weight: 400;
+                    background-color: $theme-color-red;
+                    border: none;
+                    border-radius: 1px;
+
+                    &:hover {
+                        background-color: $theme-color-red-hover;
+                    }
+
+                    &:active {
+                        background-color: $theme-color-red-active;
+                    }
+                }
+
+                a {
+                    color: #fff;
+                    text-decoration: none;
+                }
+
+                svg {
+                    width: 25px;
+                    height: auto;
+                    fill: #fff;
+                    cursor: pointer;
+                    margin-left: 1rem;
+                    margin-right: 0.5rem;
+
+                    &:hover {
+                        fill: $theme-color-red-hover;
+                    }
+
+                    &:active {
+                        fill: $theme-color-red-active;
+                    }
                 }
             }
         }
 
         .content-form {
-            @include flex($direction: column, $align: flex-start);
-            gap: 1.75rem;
+            @include flex($D: column, $A: flex-start);
             padding: 3.75rem 1.75rem;
+            gap: 1.5rem;
             border-left: 1px solid gray;
+
+            h3 {
+                margin-bottom: 0.5rem;
+            }
+
+            p {
+                color: hsl(0, 0%, 85%);
+            }
 
             input {
                 width: 100%;
@@ -312,58 +339,466 @@ header {
     }
 }
 
+//! //////////////////////////////////////////////////////////////////////////////////////////////////
+//! MAIN
+//! //////////////////////////////////////////////////////////////////////////////////////////////////
+
 main {
-    @include flex;
-    padding: 5rem 0;
+    @include flex($D: column);
 
-    .main-about {
+    .heading {
+        color: $theme-color-red;
+        font-weight: 600;
+    }
+
+    //! //////////////////////////////////////////////////////////////////////////////////////////////////
+    //! ABOUT US
+    //! //////////////////////////////////////////////////////////////////////////////////////////////////
+
+    .main-about-us {
         @include flex;
-        width: 60%;
+        width: 100%;
+        padding: 5rem 0;
 
-        p {
-            color: gray;
+        > div {
+            @include flex;
+            width: 60%;
         }
 
-        .about-image {
+        .about-us-visual {
+            @include flex($J: flex-end);
+            width: 50%;
+            padding-right: 0.75rem;
             position: relative;
 
             img {
-                width: 50rem;
-                height: 25rem;
+                width: 400px;
+                height: 450px;
+                object-fit: cover;
             }
 
-            .about-image-medal {
+            > div {
+                @include flex($A: flex-end);
                 position: absolute;
-                width: 10rem;
-                aspect-ratio: 1;
-                outline: 10px solid white;
-                bottom: 2rem;
-                left: -2rem;
-                background-color: $theme-color-red
-            }
+                width: 12.5rem;
+                height: 11rem;
+                outline: 7.5px solid hsl(0, 0%, 97.5%);
+                bottom: 2.5rem;
+                left: 0rem;
+                background-color: $theme-color-red;
+                padding: 1rem;
 
-            svg {
-                width: 25px;
-                height: auto;
+                svg {
+                    position: absolute;
+                    top: 0.75rem;
+                    right: 0.5rem;
+                    width: 37.5px;
+                    height: auto;
+                    fill: #fff;
+                }
+
+                span {
+                    display: block;
+                    font-size: 2.5rem;
+                    font-weight: 900;
+                }
+
+                p {
+                    color: #fff;
+                    font-size: 0.9rem;
+                }
             }
         }
 
-        .about-description {
-            @include flex($direction: column, $align: flex-start);
+        .about-us-description {
+            @include flex($D: column, $A: flex-start);
+            width: 50%;
+            gap: 1.2rem;
+            padding-left: 0.75rem;
 
-            .description-points {
-                display: flex;
-                flex-wrap: wrap;
+            p {
+                color: hsl(0, 0%, 40%);
+                font-size: 0.9rem;
+                line-height: 1.35 rem;
+            }
+
+            > div {
+                @include flex($J: space-between);
+
+                svg {
+                    float: left;
+                    width: 40px;
+                    fill: $theme-color-red;
+                    margin-right: 0.75rem;
+                }
             }
 
             button {
                 padding: 0.5em 1.5em;
                 color: #fff;
-                font-size: 1rem;
+                font-size: 0.9rem;
                 font-weight: 400;
                 background-color: $theme-color-blue;
                 border: none;
                 border-radius: 1px;
+                margin-top: 1em;
+
+                &:hover {
+                    background-color: $theme-color-blue-hover;
+                }
+
+                &:active {
+                    background-color: $theme-color-blue-active;
+                }
+            }
+        }
+    }
+
+    //! //////////////////////////////////////////////////////////////////////////////////////////////////
+    //! SERVICES
+    //! //////////////////////////////////////////////////////////////////////////////////////////////////
+
+    .main-services {
+        @include flex($D: column);
+        position: relative;
+        background: hsla(0, 0%, 0%, 0.05);
+        width: 100%;
+        padding: 5rem 0;
+        gap: 0.5rem;
+
+        &::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            background: url(assets/Services-bg.jpg) center/cover no-repeat;
+            opacity: 0.25;
+            z-index: -1;
+        }
+
+        > div {
+            width: 60%;
+            margin-top: 2.5rem;
+            display: grid;
+            gap: 1rem;
+            grid-template-areas:
+                "one two three four"
+                "one two three four"
+                "five six seven eight"
+                "five six seven eight";
+
+            .one {
+                grid-area: one;
+            }
+            .two {
+                grid-area: two;
+            }
+            .three {
+                grid-area: three;
+            }
+            .four {
+                grid-area: four;
+            }
+            .five {
+                grid-area: five;
+            }
+            .six {
+                grid-area: six;
+            }
+            .seven {
+                grid-area: seven;
+            }
+            .eight {
+                grid-area: eight;
+            }
+
+            .services {
+                position: relative;
+                background-color: #fff;
+                cursor: pointer;
+
+                > div {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 0.5rem;
+                    padding: 1.5rem 1rem;
+                }
+
+                p {
+                    color: hsl(0, 0%, 35%);
+                }
+
+                svg {
+                    width: 35px;
+                    fill: $theme-color-red;
+                }
+
+                span {
+                    font-size: 2.5rem;
+                    font-weight: 700;
+                    color: hsl(0, 0%, 90%);
+                    transition: all 0.25s;
+                }
+
+                &:hover span {
+                    color: hsl(0, 0%, 75%);
+                }
+
+                > div > div {
+                    @include flex($J: space-between);
+                }
+
+                &::after {
+                    content: "";
+                    position: absolute;
+                    bottom: 0;
+                    width: 100%;
+                    height: 2.5px;
+                    background-color: red;
+                    transition: all 0.25s;
+                    transform: scaleX(0);
+                    transform-origin: left;
+                }
+
+                &::before {
+                    content: "";
+                    position: absolute;
+                    bottom: 0;
+                    right: 0;
+                    width: 25px;
+                    height: 25px;
+                    background-color: red;
+                    transition: all 0.25s;
+                    transform: scaleX(0);
+                    transform-origin: right;
+                    transition-delay: 0.1s;
+                }
+
+                &:hover::after {
+                    transform: scaleX(1);
+                }
+
+                &:hover::before {
+                    transform: scaleX(1);
+                }
+            }
+        }
+    }
+
+    //! //////////////////////////////////////////////////////////////////////////////////////////////////
+    //! TRANSPORT
+    //! //////////////////////////////////////////////////////////////////////////////////////////////////
+
+    .main-transport {
+        @include flex($D: column);
+        position: relative;
+        width: 100%;
+        background: url(assets/Construction.jpg) center/cover no-repeat;
+        padding: 7.5rem 0;
+        color: #fff;
+        z-index: 1;
+
+        &::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            background: hsla(0, 0%, 0%, 0.65);
+            z-index: -1;
+        }
+
+        > div:nth-child(1) {
+            @include flex($D: column);
+            text-align: center;
+            max-width: 25%;
+            gap: 0.5rem;
+
+            > div {
+                @include flex;
+                gap: 1.5rem;
+
+                button {
+                    padding: 0.5em 1.5em;
+                    color: #fff;
+                    font-size: 0.9rem;
+                    font-weight: 400;
+                    background-color: $theme-color-blue;
+                    border: none;
+                    border-radius: 1px;
+                    margin-top: 1em;
+
+                    &:hover {
+                        background-color: $theme-color-blue-hover;
+                    }
+
+                    &:active {
+                        background-color: $theme-color-blue-active;
+                    }
+                }
+
+                button:nth-child(1) {
+                    background-color: $theme-color-red;
+
+                    &:hover {
+                        background-color: $theme-color-red-hover;
+                    }
+
+                    &:active {
+                        background-color: $theme-color-red-active;
+                    }
+                }
+            }
+        }
+
+        > div:nth-child(2) {
+            @include flex($J: space-between);
+            position: absolute;
+            bottom: -50px;
+            width: 60%;
+            padding: 1.75rem 2.75rem;
+            background-color: #fff;
+            color: #000;
+            box-shadow: 0 0 20px hsla(0, 0%, 0%, 0.15);
+
+            > div {
+                @include flex;
+                gap: 0.75rem;
+                width: 10rem;
+
+                svg {
+                    width: 40px;
+                    fill: $theme-color-blue;
+                }
+
+                span {
+                    font-size: 1.5rem;
+                    font-weight: bold;
+                    color: $theme-color-red;
+                }
+
+                p {
+                    color: hsl(0, 0%, 35%);
+                    font-size: 0.9rem;
+                }
+            }
+        }
+    }
+
+    //! //////////////////////////////////////////////////////////////////////////////////////////////////
+    //! REQUEST FORM
+    //! //////////////////////////////////////////////////////////////////////////////////////////////////
+
+    .main-request-form {
+        @include flex($D: column);
+        position: relative;
+        width: 100%;
+        padding: 7.5rem 0;
+        gap: 3rem;
+
+        > div:nth-child(1) {
+            @include flex($D: column);
+            max-width: 30%;
+            gap: 0.5rem;
+            text-align: center;
+        }
+
+        > div:nth-child(2) {
+            width: 60%;
+            display: grid;
+            gap: 1rem;
+            grid-template-areas:
+                "request-form request-form contact"
+                "request-form request-form map";
+
+            .request-form {
+                grid-area: request-form;
+            }
+            .contact {
+                grid-area: contact;
+            }
+            .map {
+                grid-area: map;
+            }
+
+            .request-form {
+                @include flex($D: column, $A: stretch);
+                gap: 2rem;
+                padding: 2rem 1rem;
+                border: 1px solid gray;
+
+                > div {
+                    @include flex($J: space-between);
+
+                    input {
+                        width: 20%;
+                    }
+
+                    > div {
+                        @include flex($D: column, $A: flex-start);
+                        width: 100%;
+
+                        input {
+                            width: 90%;
+                            height: 2.75rem;
+                            padding: 12px;
+                        }
+                    }
+                }
+
+                button {
+                    padding: 0.5em 1.5em;
+                    color: #fff;
+                    font-size: 0.9rem;
+                    font-weight: 400;
+                    background-color: $theme-color-red;
+                    border: none;
+                    border-radius: 1px;
+                    margin-top: 1em;
+
+                    &:hover {
+                        background-color: $theme-color-red-hover;
+                    }
+
+                    &:active {
+                        background-color: $theme-color-red-active;
+                    }
+                }
+            }
+
+            .contact {
+                padding: 2rem 1rem;
+                background-color: #000;
+                color: #fff;
+
+                button {
+                    padding: 0.5em 1.5em;
+                    color: #fff;
+                    font-size: 0.9rem;
+                    font-weight: 400;
+                    background-color: $theme-color-red;
+                    border: none;
+                    border-radius: 1px;
+                    margin-top: 1em;
+
+                    &:hover {
+                        background-color: $theme-color-red-hover;
+                    }
+
+                    &:active {
+                        background-color: $theme-color-red-active;
+                    }
+                }
+            }
+
+            .map {
+                opacity: 0.5;
+
+                img {
+                    object-fit: cover;
+                    height: 100%;
+                }
             }
         }
     }
