@@ -12,6 +12,7 @@
 html {
     font-family: "roboto", sans-serif;
     font-size: 14px;
+    font-weight: 500;
 }
 
 img {
@@ -23,27 +24,39 @@ button {
     cursor: pointer;
 }
 
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
 h1,
 h2,
 h3,
 h4,
 h5,
-h6,
+h6 {
+    letter-spacing: 1px;
+    font-weight: 500;
+}
+
 p {
-    margin: 0;
-    padding: 0;
+    line-height: 1.5rem;
 }
 
 //! //////////////////////////////////////////////////////////////////////////////////////////////////
 //! SCSS STYLES
 //! //////////////////////////////////////////////////////////////////////////////////////////////////
 
-@mixin flex($J: center, $D: row, $A: center, $G: 0rem) {
+@mixin flex($J: center, $D: row, $A: center, $G: 0rem, $W: nowrap) {
     display: flex;
     align-items: $A;
     justify-content: $J;
     flex-direction: $D;
     gap: $G;
+    flex-wrap: $W;
 }
 
 $theme-color-red: #ff3c40;
@@ -62,7 +75,7 @@ header {
     @include flex;
     position: relative;
     background: url(assets/Header-bg.jpg) center/cover no-repeat;
-    min-height: 40rem; // 75rem
+    min-height: 52.5rem; // 75rem
     color: #fff;
     fill: #fff;
     z-index: 0;
@@ -89,7 +102,7 @@ header {
         .nav-logo-links-socials {
             @include flex($J: space-between);
             width: 72.5%;
-            padding: 0.8rem 2.5rem;
+            padding: 0rem 2.5rem;
 
             .nav-logo {
                 font-size: 2rem;
@@ -112,13 +125,9 @@ header {
             }
 
             .nav-links {
-                display: flex;
-                gap: 2rem;
-                list-style: none;
+                @include flex($G: 2rem);
 
                 a {
-                    text-decoration: none;
-                    // font-weight: bold;
                     color: #fff;
 
                     &:hover {
@@ -136,11 +145,10 @@ header {
             }
 
             .nav-socials {
-                display: flex;
-                gap: 0.75rem;
+                @include flex($G: 0.75rem);
 
                 svg {
-                    width: 35px;
+                    width: 32px;
                     height: auto;
                     padding: 0.5rem;
                     background-color: hsla(0, 0%, 50%, 0.25);
@@ -161,20 +169,22 @@ header {
         .nav-info-buttons {
             @include flex($J: space-between);
             width: 27.5%;
-            padding: 0.8rem 2.5rem;
+            padding: 0.75rem 2.5rem;
             border-left: 1px solid gray;
 
             .nav-info {
-                @include flex;
-                gap: 1rem;
+                @include flex($G: 1rem);
 
                 span {
-                    font-size: 12px;
+                    > span {
+                        font-size: 10px;
+                        color: hsla(0, 0%, 100%, 0.85);
+                    }
                 }
 
                 svg {
-                    width: 30px;
-                    height: 30px;
+                    width: 25px;
+                    height: auto;
                     cursor: pointer;
 
                     &:hover {
@@ -188,14 +198,12 @@ header {
             }
 
             .nav-buttons {
-                @include flex($A: stretch);
-                gap: 0.5rem;
+                @include flex($A: stretch, $G: 0.5rem);
 
                 button {
-                    padding: 0.5em 1.5em;
+                    padding: 0.75em 1.75em;
+                    font-weight: 500;
                     color: #fff;
-                    font-size: 1rem;
-                    font-weight: 400;
                     background-color: $theme-color-red;
                     border: none;
                     border-radius: 1px;
@@ -208,9 +216,15 @@ header {
                         background-color: $theme-color-red-active;
                     }
                 }
-                .nav-search-button {
+
+                svg {
+                    width: 20px;
+                    height: 20px;
+                }
+
+                .nav-search {
                     @include flex;
-                    padding: 0 0.6rem;
+                    padding: 0 0.65rem;
                     background-color: $theme-color-blue;
 
                     &:hover {
@@ -219,11 +233,6 @@ header {
 
                     &:active {
                         background-color: $theme-color-blue-active;
-                    }
-
-                    svg {
-                        width: 20px;
-                        height: 20px;
                     }
                 }
             }
@@ -236,31 +245,44 @@ header {
 
     .header-content {
         @include flex;
-        width: 60%;
+        max-width: 60%;
         background-color: hsla(0, 0%, 0%, 0.5);
 
+        p {
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            margin-bottom: 5px;
+        }
+
+        h3 {
+            margin-bottom: 5px;
+        }
+
+        h4 {
+            margin-bottom: 5px;
+        }
+
         .content-read-more {
-            @include flex($D: column, $A: flex-start);
-            padding: 0rem 1.75rem;
-            gap: 1rem;
+            @include flex($D: column, $A: flex-start, $G: 0rem);
+            padding: 4rem 8rem 4rem 0rem;
 
             h1 {
-                font-size: 2.5rem;
+                font-size: 3rem;
             }
 
             p {
-                line-height: 1.5rem;
-                color: hsl(0, 0%, 85%);
+                color: hsl(0, 0%, 75%);
             }
 
             div {
                 @include flex;
 
                 button {
-                    padding: 0.5em 1.5em;
+                    padding: 0.65em 2.25em;
                     color: #fff;
-                    font-size: 1rem;
-                    font-weight: 400;
+                    font-weight: 500;
                     background-color: $theme-color-red;
                     border: none;
                     border-radius: 1px;
@@ -274,13 +296,8 @@ header {
                     }
                 }
 
-                a {
-                    color: #fff;
-                    text-decoration: none;
-                }
-
                 svg {
-                    width: 25px;
+                    width: 30px;
                     height: auto;
                     fill: #fff;
                     cursor: pointer;
@@ -295,34 +312,33 @@ header {
                         fill: $theme-color-red-active;
                     }
                 }
+
+                a {
+                    color: hsla(0, 0%, 100%, 0.75);
+                }
             }
         }
 
         .content-form {
-            @include flex($D: column, $A: flex-start);
-            padding: 3.75rem 1.75rem;
-            gap: 1.5rem;
+            @include flex($D: column, $A: flex-start, $G: 0rem);
+            padding: 4rem 1.75rem;
             border-left: 1px solid gray;
 
-            h3 {
-                margin-bottom: 0.5rem;
-            }
-
             p {
-                color: hsl(0, 0%, 85%);
+                color: hsl(0, 0%, 75%);
             }
 
             input {
                 width: 100%;
-                height: 2.75rem;
-                padding: 12px;
+                height: 2.5rem;
+                padding: 20px 15px;
+                margin-bottom: 25px;
             }
 
             button {
-                padding: 0.5em 1.5em;
+                padding: 0.5em 2em;
                 color: #fff;
-                font-size: 1rem;
-                font-weight: 400;
+                font-weight: 500;
                 background-color: $theme-color-blue;
                 border: none;
                 border-radius: 1px;
