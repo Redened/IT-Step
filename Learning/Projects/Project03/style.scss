@@ -9,15 +9,9 @@
     box-sizing: border-box;
 }
 
-html {
-    font-family: "roboto", sans-serif;
-    font-size: 14px;
-    font-weight: 500;
-}
-
 img {
     display: block;
-    max-width: 100%;
+    width: 100%;
 }
 
 button {
@@ -32,32 +26,19 @@ a {
     text-decoration: none;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    letter-spacing: 1px;
+html {
+    font-family: "roboto", sans-serif;
+    font-size: 16px;
     font-weight: 500;
 }
 
 p {
-    line-height: 1.5rem;
+    line-height: 1.4rem;
 }
 
 //! //////////////////////////////////////////////////////////////////////////////////////////////////
 //! SCSS STYLES
 //! //////////////////////////////////////////////////////////////////////////////////////////////////
-
-@mixin flex($J: center, $D: row, $A: center, $G: 0rem, $W: nowrap) {
-    display: flex;
-    align-items: $A;
-    justify-content: $J;
-    flex-direction: $D;
-    gap: $G;
-    flex-wrap: $W;
-}
 
 $theme-color-red: #ff3c40;
 $theme-color-red-hover: #ff5053;
@@ -67,6 +48,16 @@ $theme-color-blue-hover: #268fff;
 $theme-color-blue-active: #0048fe;
 $theme-color-gray: #c6c6c6;
 
+@mixin flex($J: center, $D: row, $A: center, $G: 0rem, $W: nowrap, $F: "") {
+    display: flex;
+    align-items: $A;
+    justify-content: $J;
+    flex-direction: $D;
+    gap: $G;
+    flex-wrap: $W;
+    flex: $F;
+}
+
 //! //////////////////////////////////////////////////////////////////////////////////////////////////
 //! HEADER
 //! //////////////////////////////////////////////////////////////////////////////////////////////////
@@ -74,46 +65,33 @@ $theme-color-gray: #c6c6c6;
 header {
     @include flex;
     position: relative;
+    z-index: 1;
     background: url(assets/Header-bg.jpg) center/cover no-repeat;
-    min-height: 52.5rem; // 75rem
-    color: #fff;
-    fill: #fff;
-    z-index: 0;
+    min-height: 45rem; // 52.5rem // 75rem
 
     &::before {
         content: "";
         position: absolute;
-        inset: 0;
-        background: linear-gradient(to right, hsla(0, 0%, 0%, 1) 13.75%, hsla(0, 0%, 0%, 0));
         z-index: -1;
+        background: linear-gradient(to right, hsla(0, 0%, 0%, 1) 13.75%, hsla(0, 0%, 0%, 0));
+        inset: 0;
     }
-
-    //! //////////////////////////////////////////////////////////////////////////////////////////////////
-    //! HEADER NAV
-    //! //////////////////////////////////////////////////////////////////////////////////////////////////
 
     .header-nav {
         @include flex($J: space-between);
         position: absolute;
         top: 0;
         width: 100%;
-        border-bottom: 1px solid gray;
+        border-bottom: 1px solid hsla(0, 0%, 100%, 0.25);
 
         .nav-logo-links-socials {
-            @include flex($J: space-between);
-            width: 72.5%;
-            padding: 0rem 2.5rem;
+            @include flex($J: space-between, $F: 72.5%);
+            padding: 0rem 2rem;
 
             .nav-logo {
                 font-size: 2rem;
-                font-weight: bold;
-                text-decoration: none;
-                cursor: pointer;
-                color: #fff;
-
-                &:hover {
-                    color: $theme-color-red;
-                }
+                font-weight: 500;
+                color: $theme-color-red;
 
                 &:focus-visible {
                     color: $theme-color-red;
@@ -153,6 +131,7 @@ header {
                     padding: 0.5rem;
                     background-color: hsla(0, 0%, 50%, 0.25);
                     border-radius: 50%;
+                    color: #fff;
                     cursor: pointer;
 
                     &:hover {
@@ -167,16 +146,18 @@ header {
         }
 
         .nav-info-buttons {
-            @include flex($J: space-between);
-            width: 27.5%;
-            padding: 0.75rem 2.5rem;
-            border-left: 1px solid gray;
+            @include flex($J: space-between, $F: 27.5%);
+            padding: 0.75rem 2rem;
+            border-left: 1px solid hsla(0, 0%, 100%, 0.25);
 
             .nav-info {
                 @include flex($G: 1rem);
 
-                span {
-                    > span {
+                p {
+                    line-height: 1.25;
+                    color: #fff;
+
+                    span {
                         font-size: 10px;
                         color: hsla(0, 0%, 100%, 0.85);
                     }
@@ -186,6 +167,7 @@ header {
                     width: 25px;
                     height: auto;
                     cursor: pointer;
+                    fill: #fff;
 
                     &:hover {
                         fill: $theme-color-red;
@@ -202,7 +184,6 @@ header {
 
                 button {
                     padding: 0.75em 1.75em;
-                    font-weight: 500;
                     color: #fff;
                     background-color: $theme-color-red;
                     border: none;
@@ -217,15 +198,15 @@ header {
                     }
                 }
 
-                svg {
-                    width: 20px;
-                    height: 20px;
-                }
-
-                .nav-search {
+                .search {
                     @include flex;
                     padding: 0 0.65rem;
                     background-color: $theme-color-blue;
+
+                    svg {
+                        width: 20px;
+                        height: auto;
+                    }
 
                     &:hover {
                         background-color: $theme-color-blue-hover;
@@ -239,55 +220,46 @@ header {
         }
     }
 
-    //! //////////////////////////////////////////////////////////////////////////////////////////////////
-    //! HEADER CONTENT
-    //! //////////////////////////////////////////////////////////////////////////////////////////////////
-
     .header-content {
         @include flex;
-        max-width: 60%;
-        background-color: hsla(0, 0%, 0%, 0.5);
-
-        p {
-            margin-bottom: 15px;
-        }
-
-        h1 {
-            margin-bottom: 5px;
-        }
-
-        h3 {
-            margin-bottom: 5px;
-        }
-
-        h4 {
-            margin-bottom: 5px;
-        }
+        width: 60%;
+        background-color: hsla(0, 0%, 0%, 0.45);
+        color: #fff;
+        fill: #fff;
 
         .content-read-more {
-            @include flex($D: column, $A: flex-start, $G: 0rem);
+            @include flex($D: column, $A: flex-start, $F: 65%);
             padding: 4rem 8rem 4rem 0rem;
 
+            h4 {
+                margin-bottom: 5px;
+            }
+
             h1 {
-                font-size: 3rem;
+                font-size: 2.5rem;
+                margin-bottom: 5px;
             }
 
             p {
                 color: hsl(0, 0%, 75%);
+                margin-bottom: 20px;
             }
 
-            div {
+            > div {
                 @include flex;
 
                 button {
-                    padding: 0.65em 2.25em;
+                    padding: 0.7em 2.25em;
                     color: #fff;
-                    font-weight: 500;
                     background-color: $theme-color-red;
                     border: none;
                     border-radius: 1px;
 
                     &:hover {
+                        background-color: $theme-color-red-hover;
+                    }
+
+                    &:focus-visible {
                         background-color: $theme-color-red-hover;
                     }
 
@@ -320,12 +292,17 @@ header {
         }
 
         .content-form {
-            @include flex($D: column, $A: flex-start, $G: 0rem);
-            padding: 4rem 1.75rem;
-            border-left: 1px solid gray;
+            @include flex($D: column, $A: flex-start, $F: 35%);
+            padding: 4rem 1.5rem;
+            border-left: 1px solid hsla(0, 0%, 100%, 0.25);
+
+            h3 {
+                margin-bottom: 5px;
+            }
 
             p {
                 color: hsl(0, 0%, 75%);
+                margin-bottom: 20px;
             }
 
             input {
@@ -336,9 +313,8 @@ header {
             }
 
             button {
-                padding: 0.5em 2em;
+                padding: 0.7em 2.25em;
                 color: #fff;
-                font-weight: 500;
                 background-color: $theme-color-blue;
                 border: none;
                 border-radius: 1px;
@@ -364,7 +340,11 @@ main {
 
     .heading {
         color: $theme-color-red;
-        font-weight: 600;
+        font-weight: 500;
+    }
+
+    .description {
+        letter-spacing: 1px;
     }
 
     //! //////////////////////////////////////////////////////////////////////////////////////////////////
@@ -374,97 +354,122 @@ main {
     .main-about-us {
         @include flex;
         width: 100%;
-        padding: 5rem 0;
+        padding: 5.5rem 0;
 
-        > div {
+        .container {
             @include flex;
             width: 60%;
-        }
 
-        .about-us-visual {
-            @include flex($J: flex-end);
-            width: 50%;
-            padding-right: 0.75rem;
-            position: relative;
-
-            img {
-                width: 400px;
-                height: 450px;
-                object-fit: cover;
-            }
-
-            > div {
-                @include flex($A: flex-end);
-                position: absolute;
-                width: 12.5rem;
-                height: 11rem;
-                outline: 7.5px solid hsl(0, 0%, 97.5%);
-                bottom: 2.5rem;
-                left: 0rem;
-                background-color: $theme-color-red;
-                padding: 1rem;
-
-                svg {
-                    position: absolute;
-                    top: 0.75rem;
-                    right: 0.5rem;
-                    width: 37.5px;
-                    height: auto;
-                    fill: #fff;
-                }
+            .about-us-visual {
+                @include flex($J: flex-end, $F: 50%);
+                padding-right: 0.75rem;
+                position: relative;
 
                 span {
-                    display: block;
-                    font-size: 2.5rem;
-                    font-weight: 900;
+                    margin-bottom: 1rem;
+                }
+
+                img {
+                    width: 385px;
+                    height: 445px;
+                    object-fit: cover;
+                }
+
+                > div {
+                    @include flex($A: flex-end);
+                    position: absolute;
+                    width: 12.5rem;
+                    height: 11rem;
+                    outline: 7px solid hsl(0, 0%, 97.5%);
+                    bottom: 2.5rem;
+                    left: 0rem;
+                    background-color: $theme-color-red;
+                    padding: 1rem;
+
+                    svg {
+                        position: absolute;
+                        top: 0.75rem;
+                        right: 0.5rem;
+                        width: 37.5px;
+                        height: auto;
+                        fill: #fff;
+                    }
+
+                    span {
+                        display: block;
+                        font-size: 2.75rem;
+                        font-weight: 900;
+                    }
+
+                    p {
+                        color: #fff;
+                        font-size: 0.9rem;
+                    }
+                }
+            }
+
+            .about-us-description {
+                @include flex($A: flex-start, $D: column, $F: 50%);
+                padding-left: 0.75rem;
+
+                h4 {
+                    margin-bottom: 10px;
+                }
+
+                h2 {
+                    margin-bottom: 10px;
                 }
 
                 p {
-                    color: #fff;
+                    color: hsl(0, 0%, 40%);
                     font-size: 0.9rem;
-                }
-            }
-        }
-
-        .about-us-description {
-            @include flex($D: column, $A: flex-start);
-            width: 50%;
-            gap: 1.2rem;
-            padding-left: 0.75rem;
-
-            p {
-                color: hsl(0, 0%, 40%);
-                font-size: 0.9rem;
-                line-height: 1.35 rem;
-            }
-
-            > div {
-                @include flex($J: space-between);
-
-                svg {
-                    float: left;
-                    width: 40px;
-                    fill: $theme-color-red;
-                    margin-right: 0.75rem;
-                }
-            }
-
-            button {
-                padding: 0.5em 1.5em;
-                color: #fff;
-                font-size: 0.9rem;
-                font-weight: 400;
-                background-color: $theme-color-blue;
-                border: none;
-                border-radius: 1px;
-                margin-top: 1em;
-
-                &:hover {
-                    background-color: $theme-color-blue-hover;
+                    margin-bottom: 20px;
                 }
 
-                &:active {
-                    background-color: $theme-color-blue-active;
+                > div {
+                    @include flex($G: 1rem);
+                    margin-bottom: 1rem;
+
+                    > div {
+                        @include flex;
+
+                        svg {
+                            flex: 20%;
+                            width: 50px;
+                            fill: $theme-color-red;
+                            margin-right: 0.75rem;
+                        }
+
+                        > div {
+                            flex: 80%;
+
+                            h4 {
+                                font-weight: 500;
+                                margin-bottom: 0px;
+                            }
+
+                            p {
+                                font-size: 0.8rem;
+                                margin-bottom: 0px;
+                            }
+                        }
+                    }
+                }
+
+                button {
+                    padding: 0.7em 2.25em;
+                    color: #fff;
+                    background-color: $theme-color-blue;
+                    border: none;
+                    border-radius: 1px;
+
+                    &:hover {
+                        background-color: $theme-color-blue-hover;
+                    }
+
+                    &:active {
+                        background-color: $theme-color-blue-active;
+                    }
                 }
             }
         }
@@ -477,10 +482,9 @@ main {
     .main-services {
         @include flex($D: column);
         position: relative;
-        background: hsla(0, 0%, 0%, 0.05);
         width: 100%;
-        padding: 5rem 0;
-        gap: 0.5rem;
+        padding: 5.5rem 0;
+        background: hsla(0, 0%, 0%, 0.05);
 
         &::before {
             content: "";
@@ -493,15 +497,20 @@ main {
             z-index: -1;
         }
 
-        > div {
+        h4 {
+            margin-bottom: 5px;
+        }
+
+        h2 {
+            margin-bottom: 50px;
+        }
+
+        .container {
             width: 60%;
-            margin-top: 2.5rem;
             display: grid;
-            gap: 1rem;
+            gap: 1.5rem;
             grid-template-areas:
                 "one two three four"
-                "one two three four"
-                "five six seven eight"
                 "five six seven eight";
 
             .one {
@@ -535,34 +544,29 @@ main {
                 cursor: pointer;
 
                 > div {
-                    display: flex;
-                    flex-direction: column;
-                    gap: 0.5rem;
-                    padding: 1.5rem 1rem;
-                }
+                    @include flex($D: column, $A: default);
+                    padding: 0.75rem 0.9rem 1rem 0.9rem;
 
-                p {
-                    color: hsl(0, 0%, 35%);
-                }
+                    > div {
+                        @include flex($J: space-between);
 
-                svg {
-                    width: 35px;
-                    fill: $theme-color-red;
-                }
+                        svg {
+                            width: 35px;
+                            height: auto;
+                            fill: $theme-color-red;
+                        }
 
-                span {
-                    font-size: 2.5rem;
-                    font-weight: 700;
-                    color: hsl(0, 0%, 90%);
-                    transition: all 0.25s;
-                }
+                        span {
+                            font-size: 2.5rem;
+                            font-weight: 700;
+                            color: hsl(0, 0%, 90%);
+                            transition: all 0.25s;
+                        }
+                    }
 
-                &:hover span {
-                    color: hsl(0, 0%, 75%);
-                }
-
-                > div > div {
-                    @include flex($J: space-between);
+                    p {
+                        color: hsl(0, 0%, 50%);
+                    }
                 }
 
                 &::after {
@@ -570,7 +574,7 @@ main {
                     position: absolute;
                     bottom: 0;
                     width: 100%;
-                    height: 2.5px;
+                    height: 2px;
                     background-color: red;
                     transition: all 0.25s;
                     transform: scaleX(0);
@@ -598,6 +602,10 @@ main {
                 &:hover::before {
                     transform: scaleX(1);
                 }
+
+                &:hover span {
+                    color: hsl(0, 0%, 75%);
+                }
             }
         }
     }
@@ -611,39 +619,41 @@ main {
         position: relative;
         width: 100%;
         background: url(assets/Construction.jpg) center/cover no-repeat;
-        padding: 7.5rem 0;
-        color: #fff;
+        padding: 5.5rem 0 7.5rem;
         z-index: 1;
 
         &::before {
             content: "";
             position: absolute;
             inset: 0;
-            width: 100%;
-            height: 100%;
             background: hsla(0, 0%, 0%, 0.65);
             z-index: -1;
         }
 
-        > div:nth-child(1) {
+        .heading-container {
             @include flex($D: column);
-            text-align: center;
-            max-width: 25%;
-            gap: 0.5rem;
+            width: 25%;
+
+            h4 {
+                margin-bottom: 5px;
+            }
+
+            h2 {
+                color: #fff;
+                text-align: center;
+                margin-bottom: 25px;
+            }
 
             > div {
-                @include flex;
-                gap: 1.5rem;
+                @include flex($G: 1.5rem);
 
                 button {
-                    padding: 0.5em 1.5em;
+                    padding: 0.7em 2.25em;
                     color: #fff;
                     font-size: 0.9rem;
-                    font-weight: 400;
                     background-color: $theme-color-blue;
                     border: none;
                     border-radius: 1px;
-                    margin-top: 1em;
 
                     &:hover {
                         background-color: $theme-color-blue-hover;
@@ -668,7 +678,7 @@ main {
             }
         }
 
-        > div:nth-child(2) {
+        .container {
             @include flex($J: space-between);
             position: absolute;
             bottom: -50px;
@@ -679,8 +689,7 @@ main {
             box-shadow: 0 0 20px hsla(0, 0%, 0%, 0.15);
 
             > div {
-                @include flex;
-                gap: 0.75rem;
+                @include flex($G: 0.75rem);
                 width: 10rem;
 
                 svg {
@@ -710,110 +719,600 @@ main {
         @include flex($D: column);
         position: relative;
         width: 100%;
-        padding: 7.5rem 0;
-        gap: 3rem;
+        padding: 7.5rem 0 5rem;
 
-        > div:nth-child(1) {
-            @include flex($D: column);
-            max-width: 30%;
-            gap: 0.5rem;
-            text-align: center;
+        h4 {
+            margin-bottom: 5px;
         }
 
-        > div:nth-child(2) {
+        h2 {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .container {
+            @include flex($G: 1.5rem, $A: stretch);
             width: 60%;
-            display: grid;
-            gap: 1rem;
-            grid-template-areas:
-                "request-form request-form contact"
-                "request-form request-form map";
 
             .request-form {
-                grid-area: request-form;
-            }
-            .contact {
-                grid-area: contact;
-            }
-            .map {
-                grid-area: map;
-            }
+                @include flex($D: column, $A: stretch, $J: flex-start, $G: 1.25rem, $F: 67.5%);
+                padding: 3.25rem 1.5rem;
+                border: 1px solid hsl(0, 0%, 85%);
 
-            .request-form {
-                @include flex($D: column, $A: stretch);
-                gap: 2rem;
-                padding: 2rem 1rem;
-                border: 1px solid gray;
+                h3 {
+                    margin-bottom: 0px;
+                }
 
                 > div {
-                    @include flex($J: space-between);
-
-                    input {
-                        width: 20%;
-                    }
+                    @include flex($J: space-between, $G: 1.5rem);
 
                     > div {
-                        @include flex($D: column, $A: flex-start);
+                        @include flex($D: column, $A: flex-start, $G: 5px);
                         width: 100%;
+                    }
+                }
 
-                        input {
-                            width: 90%;
-                            height: 2.75rem;
-                            padding: 12px;
+                label {
+                    font-size: 0.75rem;
+                    font-weight: normal;
+                    color: hsl(0, 0%, 15%);
+                }
+
+                input {
+                    width: 100%;
+                    height: 2.75rem;
+                    padding: 12px;
+                    border: 1px solid hsl(0, 0%, 85%);
+                    background-color: hsl(0, 0%, 99%);
+                    color: hsl(0, 0%, 45%);
+                    border-radius: 2.5px;
+                }
+
+                select {
+                    width: 100%;
+                    height: 2.75rem;
+                    padding: 12px;
+                    border: 1px solid hsl(0, 0%, 85%);
+                    background-color: hsl(0, 0%, 99%);
+                    color: hsl(0, 0%, 65%);
+                    border-radius: 2.5px;
+                }
+
+                .input-group {
+                    input {
+                        width: 17.5%;
+                    }
+                }
+
+                .checkbox-group {
+                    @include flex($J: flex-start);
+
+                    input {
+                        width: 12px;
+                        height: auto;
+                        margin-right: 5px;
+                    }
+
+                    label {
+                        margin-right: 20px;
+                        color: hsl(0, 0%, 45%);
+                    }
+                }
+
+                button {
+                    padding: 0.7em 2.25em;
+                    color: #fff;
+                    font-size: 0.9rem;
+                    background-color: $theme-color-red;
+                    border: none;
+                    border-radius: 1px;
+
+                    &:hover {
+                        background-color: $theme-color-red-hover;
+                    }
+
+                    &:active {
+                        background-color: $theme-color-red-active;
+                    }
+                }
+            }
+
+            .contact-map {
+                @include flex($D: column, $G: 1.75rem, $F: 32.5%);
+
+                .contact {
+                    @include flex($D: column, $A: flex-start, $F: 50%);
+                    padding: 1.5rem 1.5rem;
+                    background-color: #000;
+                    color: #fff;
+
+                    svg {
+                        width: 45px;
+                        fill: $theme-color-red;
+                        margin-bottom: 15px;
+                    }
+
+                    h3 {
+                        letter-spacing: 0.5px;
+                        margin-bottom: 5px;
+                    }
+
+                    p {
+                        color: hsl(0, 0%, 65%);
+                        font-size: 0.9rem;
+                    }
+
+                    button {
+                        padding: 0.7em 2.25em;
+                        color: #fff;
+                        font-size: 0.8rem;
+                        background-color: $theme-color-red;
+                        border: none;
+                        border-radius: 1px;
+                        margin-top: 1em;
+
+                        &:hover {
+                            background-color: $theme-color-red-hover;
+                        }
+
+                        &:active {
+                            background-color: $theme-color-red-active;
                         }
                     }
                 }
 
-                button {
-                    padding: 0.5em 1.5em;
-                    color: #fff;
-                    font-size: 0.9rem;
-                    font-weight: 400;
-                    background-color: $theme-color-red;
-                    border: none;
-                    border-radius: 1px;
-                    margin-top: 1em;
+                .map {
+                    flex: 50%;
 
-                    &:hover {
-                        background-color: $theme-color-red-hover;
-                    }
-
-                    &:active {
-                        background-color: $theme-color-red-active;
+                    img {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
                     }
                 }
             }
+        }
+    }
 
-            .contact {
-                padding: 2rem 1rem;
-                background-color: #000;
+    //! //////////////////////////////////////////////////////////////////////////////////////////////////
+    //! REQUEST FORM
+    //! //////////////////////////////////////////////////////////////////////////////////////////////////
+
+    .main-testimonials {
+        @include flex($D: column);
+        width: 100%;
+        padding: 4rem 0;
+        background-color: #f3fbfe;
+
+        .container {
+            @include flex($J: space-between);
+            width: 60%;
+            margin-bottom: 5rem;
+
+            h4 {
+                margin-bottom: 7.5px;
+            }
+
+            button {
+                padding: 0.7em 2.25em;
                 color: #fff;
+                font-size: 0.9rem;
+                background-color: $theme-color-red;
+                border: none;
+                border-radius: 1px;
 
-                button {
-                    padding: 0.5em 1.5em;
-                    color: #fff;
-                    font-size: 0.9rem;
-                    font-weight: 400;
-                    background-color: $theme-color-red;
-                    border: none;
-                    border-radius: 1px;
-                    margin-top: 1em;
+                &:hover {
+                    background-color: $theme-color-red-hover;
+                }
 
-                    &:hover {
-                        background-color: $theme-color-red-hover;
-                    }
-
-                    &:active {
-                        background-color: $theme-color-red-active;
-                    }
+                &:active {
+                    background-color: $theme-color-red-active;
                 }
             }
+        }
 
-            .map {
-                opacity: 0.5;
+        .testimonial-container {
+            @include flex;
+
+            .testimonial {
+                width: 40%;
+                padding: 1.25rem;
+                background-color: #fff;
+                border: 1px solid hsl(0, 0%, 90%);
+
+                div {
+                    @include flex($J: flex-start);
+
+                    p {
+                        margin: 0;
+
+                        &::first-line {
+                            color: $theme-color-red;
+                        }
+                    }
+                }
 
                 img {
+                    width: 50px;
+                    height: 50px;
+                    border-radius: 50%;
+                    margin-right: 10px;
+                }
+
+                p {
+                    color: hsl(0, 0%, 50%);
+                    margin-bottom: 20px;
+                }
+            }
+        }
+    }
+
+    //! //////////////////////////////////////////////////////////////////////////////////////////////////
+    //! CONTACT US
+    //! //////////////////////////////////////////////////////////////////////////////////////////////////
+
+    .main-contact-us {
+        @include flex;
+        position: relative;
+        width: 100%;
+        padding: 4rem 0;
+        background: url(assets/Building.jpg) center/cover no-repeat;
+        z-index: 1;
+
+        &::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: hsla(0, 0%, 0%, 0.65);
+            z-index: -1;
+        }
+
+        .container {
+            @include flex($J: space-between);
+            width: 60%;
+
+            > div {
+                @include flex;
+                width: 70%;
+                color: #fff;
+
+                svg {
+                    fill: $theme-color-red;
+                    width: 75px;
+                    height: auto;
+                    margin-right: 25px;
+                }
+
+                h2 {
+                    text-align: left;
+                    margin-bottom: 7.5px;
+                }
+
+                p {
+                    font-size: 0.8rem;
+                }
+            }
+
+            button {
+                padding: 0.7em 2.25em;
+                color: #fff;
+                font-size: 0.9rem;
+                font-weight: 400;
+                background-color: $theme-color-blue;
+                border: none;
+                border-radius: 1px;
+                margin-top: 1em;
+
+                &:hover {
+                    background-color: $theme-color-blue-hover;
+                }
+
+                &:active {
+                    background-color: $theme-color-blue-active;
+                }
+            }
+        }
+    }
+
+    //! //////////////////////////////////////////////////////////////////////////////////////////////////
+    //! BLOG
+    //! //////////////////////////////////////////////////////////////////////////////////////////////////
+
+    .main-blog {
+        @include flex($D: column);
+        width: 100%;
+        padding: 3.5rem 0;
+
+        h4 {
+            margin-bottom: 5px;
+        }
+
+        h2 {
+            margin-bottom: 50px;
+        }
+
+        .container {
+            @include flex($G: 1.5rem);
+            width: 60%;
+
+            .blog-container {
+                @include flex($D: column);
+                flex: 33.3%;
+                border: 1px solid hsl(0, 0%, 90%);
+
+                img {
+                    width: 100%;
+                    height: 175px;
                     object-fit: cover;
+                }
+
+                .blog-body {
+                    @include flex($D: column, $A: flex-start);
+                    padding: 1.5rem 1.25rem;
+
+                    > div {
+                        @include flex;
+                        margin-bottom: 0.75rem;
+
+                        svg {
+                            width: 15px;
+                            height: auto;
+                            fill: $theme-color-red;
+                            margin-right: 7.5px;
+                        }
+
+                        span {
+                            font-size: 0.75rem;
+                            color: hsl(0, 0%, 50%);
+                        }
+                    }
+
+                    h4 {
+                        margin-bottom: 0.5rem;
+                    }
+
+                    p {
+                        color: hsl(0, 0%, 50%);
+                        font-size: 0.9rem;
+                        margin-bottom: 1rem;
+                    }
+
+                    button {
+                        padding: 0.7em 2.25em;
+                        color: #fff;
+                        font-size: 0.9rem;
+                        font-weight: 400;
+                        background-color: $theme-color-red;
+                        border: none;
+                        border-radius: 1px;
+
+                        &:hover {
+                            background-color: $theme-color-red-hover;
+                        }
+
+                        &:active {
+                            background-color: $theme-color-red-active;
+                        }
+                    }
+                }
+            }
+
+            .blog-container:nth-of-type(2) {
+                box-shadow: 0 0 20px hsla(0, 0%, 0%, 0.1);
+                border: none;
+
+                button {
+                    background-color: $theme-color-blue;
+
+                    &:hover {
+                        background-color: $theme-color-blue-hover;
+                    }
+
+                    &:active {
+                        background-color: $theme-color-blue-active;
+                    }
+                }
+            }
+        }
+    }
+
+    //! //////////////////////////////////////////////////////////////////////////////////////////////////
+    //! PARTNERS
+    //! //////////////////////////////////////////////////////////////////////////////////////////////////
+
+    .main-partners {
+        @include flex($D: column);
+        width: 100%;
+        padding: 1.5rem 0 2.75rem;
+
+        .container {
+            width: 60%;
+
+            h4 {
+                margin-bottom: 7.5px;
+            }
+
+            h2 {
+                text-align: left;
+                margin-bottom: 50px;
+            }
+
+            > div {
+                @include flex($J: space-between);
+
+                h1 {
+                    color: $theme-color-blue;
+                }
+            }
+        }
+    }
+}
+
+//! //////////////////////////////////////////////////////////////////////////////////////////////////
+//! FOOTER
+//! //////////////////////////////////////////////////////////////////////////////////////////////////
+
+footer {
+    @include flex($D: column);
+    width: 100%;
+    background-color: #000;
+
+    .footer-content {
+        @include flex($G: 2.5rem, $A: flex-start);
+        color: #fff;
+        width: 60%;
+        padding: 4.5rem 0;
+
+        .footer-logo-socials {
+            flex: 33.3%;
+
+            h2 {
+                color: $theme-color-red;
+                margin-bottom: 10px;
+            }
+
+            p {
+                font-size: 0.85rem;
+                color: hsla(0, 0%, 100%, 0.5);
+                margin-bottom: 15px;
+            }
+
+            > div {
+                @include flex($G: 0.75rem, $J: flex-start);
+
+                svg {
+                    width: 32px;
+                    height: auto;
+                    padding: 0.5rem;
+                    background-color: #fff;
+                    border-radius: 50%;
+                    color: #000;
+                    cursor: pointer;
+
+                    &:hover {
+                        background-color: $theme-color-red;
+                        color: #fff;
+                    }
+
+                    &:active {
+                        background-color: $theme-color-red-active;
+                        color: #fff;
+                    }
+                }
+            }
+        }
+
+        .footer-links {
+            @include flex($G: 0.75rem, $D: column, $A: flex-start);
+            flex: 33.3%;
+
+            .link-container {
+                @include flex($J: flex-start, $G: 5rem);
+                width: 100%;
+
+                > div {
+                    @include flex($G: 0.75rem, $D: column, $J: space-between);
+
+                    a {
+                        color: hsla(0, 0%, 100%, 0.5);
+
+                        &:hover {
+                            color: hsla(0, 0%, 100%, 0.65);
+                        }
+
+                        &:active {
+                            color: hsla(0, 0%, 100%, 1);
+                        }
+                    }
+                }
+            }
+        }
+
+        .footer-newsletter {
+            flex: 33.3%;
+
+            h2 {
+                margin-bottom: 15px;
+            }
+
+            p {
+                color: hsla(0, 0%, 100%, 0.5);
+                margin-bottom: 15px;
+            }
+
+            div {
+                @include flex($J: space-between);
+                padding: 0.2rem;
+                background-color: #fff;
+
+                input {
+                    padding: 0.25rem 1rem;
+                    border: none;
                     height: 100%;
+
+                    &:focus-within {
+                        outline: none;
+                    }
+                }
+
+                button {
+                    padding: 0.5em 1em;
+                    color: #fff;
+                    font-size: 0.9rem;
+                    font-weight: 400;
+                    background-color: $theme-color-red;
+                    border: none;
+                    border-radius: 1px;
+
+                    &:hover {
+                        background-color: $theme-color-red-hover;
+                    }
+
+                    &:active {
+                        background-color: $theme-color-red-active;
+                    }
+                }
+            }
+        }
+    }
+
+    .footer-copyright {
+        @include flex;
+        width: 100%;
+        padding: 1rem 0;
+        background-color: $theme-color-red;
+        color: #fff;
+        font-size: 0.9rem;
+    }
+
+    .footer-info {
+        @include flex;
+        width: 100%;
+        padding: 1rem 0;
+        background-color: #fff;
+
+        .container {
+            @include flex($J: space-between);
+            width: 60%;
+
+            > div {
+                @include flex;
+
+                svg {
+                    fill: $theme-color-red;
+                    width: 25px;
+                    height: auto;
+                    margin-right: 0.75rem;
+                }
+
+                p {
+                    line-height: 1.2;
+                    font-size: 0.8rem;
+                }
+
+                span {
+                    font-size: 0.75rem;
+                    color: hsla(0, 0%, 0%, 0.5);
                 }
             }
         }
