@@ -145,7 +145,7 @@ header {
             }
         }
 
-        .nav-info-buttons {
+        .nav-info-buttons-menu {
             @include flex($J: space-between, $F: 27.5%);
             padding: 0.75rem 2rem;
             border-left: 1px solid hsla(0, 0%, 100%, 0.25);
@@ -217,12 +217,21 @@ header {
                     }
                 }
             }
+
+            .nav-responsive-menu {
+                svg {
+                    display: none;
+                    width: 50px;
+                    height: auto;
+                    fill: #c6c6c6;
+                }
+            }
         }
     }
 
     .header-content {
         @include flex;
-        width: 60%;
+        width: min(1065px, 90%);
         background-color: hsla(0, 0%, 0%, 0.45);
         color: #fff;
         fill: #fff;
@@ -344,6 +353,7 @@ main {
     }
 
     .description {
+        font-size: 1.75rem;
         letter-spacing: 1px;
     }
 
@@ -358,19 +368,15 @@ main {
 
         .container {
             @include flex;
-            width: 60%;
+            width: min(1065px, 90%);
 
             .about-us-visual {
                 @include flex($J: flex-end, $F: 50%);
                 padding-right: 0.75rem;
                 position: relative;
 
-                span {
-                    margin-bottom: 1rem;
-                }
-
                 img {
-                    width: 385px;
+                    width: min(385px, 100%);
                     height: 445px;
                     object-fit: cover;
                 }
@@ -399,6 +405,7 @@ main {
                         display: block;
                         font-size: 2.75rem;
                         font-weight: 900;
+                        margin-bottom: 1rem;
                     }
 
                     p {
@@ -506,7 +513,7 @@ main {
         }
 
         .container {
-            width: 60%;
+            width: min(1065px, 90%);
             display: grid;
             gap: 1.5rem;
             grid-template-areas:
@@ -542,6 +549,10 @@ main {
                 position: relative;
                 background-color: #fff;
                 cursor: pointer;
+
+                img {
+                    object-fit: cover;
+                }
 
                 > div {
                     @include flex($D: column, $A: default);
@@ -632,7 +643,7 @@ main {
 
         .heading-container {
             @include flex($D: column);
-            width: 25%;
+            width: min(500px, 90%);
 
             h4 {
                 margin-bottom: 5px;
@@ -682,7 +693,7 @@ main {
             @include flex($J: space-between);
             position: absolute;
             bottom: -50px;
-            width: 60%;
+            width: min(1065px, 95%);
             padding: 1.75rem 2.75rem;
             background-color: #fff;
             color: #000;
@@ -690,7 +701,7 @@ main {
 
             > div {
                 @include flex($G: 0.75rem);
-                width: 10rem;
+                width: min(10rem, 100%);
 
                 svg {
                     width: 40px;
@@ -698,7 +709,7 @@ main {
                 }
 
                 span {
-                    font-size: 1.5rem;
+                    font-size: 1.85rem;
                     font-weight: bold;
                     color: $theme-color-red;
                 }
@@ -732,7 +743,7 @@ main {
 
         .container {
             @include flex($G: 1.5rem, $A: stretch);
-            width: 60%;
+            width: min(1065px, 90%);
 
             .request-form {
                 @include flex($D: column, $A: stretch, $J: flex-start, $G: 1.25rem, $F: 67.5%);
@@ -786,6 +797,7 @@ main {
 
                 .checkbox-group {
                     @include flex($J: flex-start);
+                    margin: 0.5rem 0;
 
                     input {
                         width: 12px;
@@ -800,9 +812,9 @@ main {
                 }
 
                 button {
-                    padding: 0.7em 2.25em;
+                    padding: 0.8em 2.25em;
                     color: #fff;
-                    font-size: 0.9rem;
+                    font-size: 1.12rem;
                     background-color: $theme-color-red;
                     border: none;
                     border-radius: 1px;
@@ -834,6 +846,7 @@ main {
 
                     h3 {
                         letter-spacing: 0.5px;
+                        font-size: 1.25rem;
                         margin-bottom: 5px;
                     }
 
@@ -862,7 +875,8 @@ main {
                 }
 
                 .map {
-                    flex: 50%;
+                    @include flex($F: 50%);
+                    width: 100%;
 
                     img {
                         width: 100%;
@@ -886,7 +900,7 @@ main {
 
         .container {
             @include flex($J: space-between);
-            width: 60%;
+            width: min(1065px, 90%);
             margin-bottom: 5rem;
 
             h4 {
@@ -894,7 +908,7 @@ main {
             }
 
             button {
-                padding: 0.7em 2.25em;
+                padding: 0em;
                 color: #fff;
                 font-size: 0.9rem;
                 background-color: $theme-color-red;
@@ -909,13 +923,18 @@ main {
                     background-color: $theme-color-red-active;
                 }
             }
+
+            svg {
+                width: 40px;
+                height: auto;
+            }
         }
 
         .testimonial-container {
             @include flex;
 
             .testimonial {
-                width: 40%;
+                width: min(500px, 90%);
                 padding: 1.25rem;
                 background-color: #fff;
                 border: 1px solid hsl(0, 0%, 90%);
@@ -969,7 +988,7 @@ main {
 
         .container {
             @include flex($J: space-between);
-            width: 60%;
+            width: min(1065px, 90%);
 
             > div {
                 @include flex;
@@ -989,7 +1008,7 @@ main {
                 }
 
                 p {
-                    font-size: 0.8rem;
+                    font-size: 0.9rem;
                 }
             }
 
@@ -1033,7 +1052,7 @@ main {
 
         .container {
             @include flex($G: 1.5rem);
-            width: 60%;
+            width: min(1065px, 90%);
 
             .blog-container {
                 @include flex($D: column);
@@ -1126,7 +1145,7 @@ main {
         padding: 1.5rem 0 2.75rem;
 
         .container {
-            width: 60%;
+            width: min(1065px, 90%);
 
             h4 {
                 margin-bottom: 7.5px;
@@ -1160,7 +1179,7 @@ footer {
     .footer-content {
         @include flex($G: 2.5rem, $A: flex-start);
         color: #fff;
-        width: 60%;
+        width: min(1065px, 90%);
         padding: 4.5rem 0;
 
         .footer-logo-socials {
@@ -1293,7 +1312,7 @@ footer {
 
         .container {
             @include flex($J: space-between);
-            width: 60%;
+            width: min(1065px, 90%);
 
             > div {
                 @include flex;
@@ -1315,6 +1334,169 @@ footer {
                     color: hsla(0, 0%, 0%, 0.5);
                 }
             }
+        }
+    }
+}
+
+//! //////////////////////////////////////////////////////////////////////////////////////////////////
+//! MEDIA QUERIES
+//! //////////////////////////////////////////////////////////////////////////////////////////////////
+
+@media (max-width: 1400px) {
+    .header-nav {
+        .nav-logo-links-socials {
+            flex: 65% !important;
+
+            .nav-socials {
+                display: none !important;
+            }
+        }
+
+        .nav-info-buttons-menu {
+            flex: 35% !important;
+        }
+    }
+}
+
+@media (max-width: 1200px) {
+    .header-nav {
+        .nav-logo-links-socials {
+            flex: 75% !important;
+        }
+
+        .nav-info-buttons-menu {
+            flex: 25% !important;
+            justify-content: flex-end !important;
+
+            .nav-info {
+                display: none !important;
+            }
+        }
+    }
+
+    .header-content {
+        .content-read-more {
+            padding-right: 2rem !important;
+        }
+    }
+}
+
+@media (max-width: 1000px) {
+    .header-nav {
+        .nav-logo-links-socials {
+            flex: 95% !important;
+        }
+
+        .nav-info-buttons-menu {
+            flex: 5% !important;
+
+            .nav-buttons {
+                display: none !important;
+            }
+
+            .nav-responsive-menu {
+                svg {
+                    display: block !important;
+                }
+            }
+        }
+    }
+
+    .main-services {
+        .container {
+            grid-template-areas:
+                "one two three"
+                "four five six"
+                "seven eight ." !important;
+        }
+    }
+}
+
+@media (max-width: 850px) {
+    .header-nav {
+        .nav-links {
+            display: none !important;
+        }
+    }
+
+    .header-content {
+        margin: 7.5rem 0 2.5rem !important;
+        flex-direction: column !important;
+        align-items: flex-end !important;
+
+        .content-read-more {
+            padding: 0 0 2rem 1rem !important;
+            border-bottom: 1px solid hsla(0, 0%, 100%, 0.25) !important;
+        }
+
+        .content-form {
+            align-items: flex-end !important;
+            text-align: right !important;
+            padding: 2rem 1rem 1rem 0 !important;
+            border: none !important;
+        }
+    }
+
+    .main-about-us {
+        .about-us-visual {
+            display: none !important;
+        }
+
+        .about-us-description {
+            align-items: center !important;
+        }
+    }
+
+    .main-request-form {
+        .container {
+            flex-direction: column !important;
+        }
+    }
+
+    .main-transport {
+        .container {
+            text-align: center !important;
+
+            svg {
+                display: none !important;
+            }
+        }
+    }
+
+    //! PADDING
+
+    .main-about-us,
+    .main-services,
+    .main-testimonials,
+    .main-contact-us,
+    .main-blog,
+    .footer-content {
+        padding: 2.5rem 0 !important;
+    }
+
+    .main-transport {
+        padding: 2.5rem 0 5rem !important;
+    }
+
+    .main-request-form {
+        padding: 5rem 0 2rem !important;
+    }
+}
+
+@media (max-width: 700px) {
+    .main-services {
+        .container {
+            grid-template-areas:
+                "one two"
+                "three four"
+                "five six"
+                "seven eight" !important;
+        }
+    }
+
+    .main-contact-us {
+        svg {
+            display: none !important;
         }
     }
 }
