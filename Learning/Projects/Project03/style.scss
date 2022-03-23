@@ -889,7 +889,7 @@ main {
     }
 
     //! //////////////////////////////////////////////////////////////////////////////////////////////////
-    //! REQUEST FORM
+    //! TESTIMONIALS
     //! //////////////////////////////////////////////////////////////////////////////////////////////////
 
     .main-testimonials {
@@ -905,6 +905,11 @@ main {
 
             h4 {
                 margin-bottom: 7.5px;
+            }
+
+            .slider-navigation {
+                display: flex;
+                gap: 0.5rem;
             }
 
             button {
@@ -1486,6 +1491,7 @@ footer {
 @media (max-width: 700px) {
     .main-services {
         .container {
+            gap: 1rem !important;
             grid-template-areas:
                 "one two"
                 "three four"
@@ -1494,8 +1500,97 @@ footer {
         }
     }
 
+    .main-transport {
+        .container {
+            padding: 1.2rem 0 !important;
+
+            span {
+                font-size: 1.5rem !important;
+            }
+        }
+    }
+
+    .main-request-form {
+        padding-top: 7.5rem !important;
+
+        .request-form {
+            padding: 2rem 1.5rem !important;
+
+            .checkbox-group {
+                flex-wrap: wrap !important;
+                gap: 1rem !important;
+                flex-direction: row !important;
+
+                div {
+                    flex-direction: row !important;
+                    width: fit-content !important;
+                }
+            }
+        }
+    }
+
     .main-contact-us {
+        .container {
+            flex-direction: column !important;
+
+            h2, p {
+                text-align: center !important;
+            }
+        }
+
         svg {
+            display: none !important;
+        }
+    }
+
+    .main-partners {
+        .container {
+            div {
+                flex-wrap: wrap !important;
+                justify-content: center !important;
+                gap: 1rem !important;
+            }
+        }
+    }
+
+    .footer-content {
+        flex-direction: column !important;
+
+        .footer-links {
+            width: 100%;
+
+            .link-container {
+                flex-direction: column !important;
+                gap: 1rem !important;
+
+                div {
+                    width: 100% !important;
+                    flex-direction: row !important;
+                    flex-wrap: wrap !important;
+                }
+            }
+        }
+    }
+    
+    .footer-copyright {
+        text-align: center !important;
+    }
+
+    .footer-info {
+        .container {
+            flex-wrap: wrap !important;
+            gap: 1rem !important;
+
+            div {
+                flex: 25%;
+            }
+        }
+    }
+}
+
+@media (max-width: 600px) {
+    .main-blog {
+        .blog-container:nth-last-of-type(1), .blog-container:nth-last-of-type(3)  {
             display: none !important;
         }
     }

@@ -952,6 +952,10 @@ main .main-testimonials .container {
 main .main-testimonials .container h4 {
   margin-bottom: 7.5px;
 }
+main .main-testimonials .container .slider-navigation {
+  display: flex;
+  gap: 0.5rem;
+}
 main .main-testimonials .container button {
   padding: 0em;
   color: #fff;
@@ -1531,10 +1535,81 @@ footer .footer-info .container > div span {
 }
 @media (max-width: 700px) {
   .main-services .container {
+    gap: 1rem !important;
     grid-template-areas: "one two" "three four" "five six" "seven eight" !important;
   }
 
+  .main-transport .container {
+    padding: 1.2rem 0 !important;
+  }
+  .main-transport .container span {
+    font-size: 1.5rem !important;
+  }
+
+  .main-request-form {
+    padding-top: 7.5rem !important;
+  }
+  .main-request-form .request-form {
+    padding: 2rem 1.5rem !important;
+  }
+  .main-request-form .request-form .checkbox-group {
+    flex-wrap: wrap !important;
+    gap: 1rem !important;
+    flex-direction: row !important;
+  }
+  .main-request-form .request-form .checkbox-group div {
+    flex-direction: row !important;
+    width: -webkit-fit-content !important;
+    width: -moz-fit-content !important;
+    width: fit-content !important;
+  }
+
+  .main-contact-us .container {
+    flex-direction: column !important;
+  }
+  .main-contact-us .container h2, .main-contact-us .container p {
+    text-align: center !important;
+  }
   .main-contact-us svg {
+    display: none !important;
+  }
+
+  .main-partners .container div {
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 1rem !important;
+  }
+
+  .footer-content {
+    flex-direction: column !important;
+  }
+  .footer-content .footer-links {
+    width: 100%;
+  }
+  .footer-content .footer-links .link-container {
+    flex-direction: column !important;
+    gap: 1rem !important;
+  }
+  .footer-content .footer-links .link-container div {
+    width: 100% !important;
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+  }
+
+  .footer-copyright {
+    text-align: center !important;
+  }
+
+  .footer-info .container {
+    flex-wrap: wrap !important;
+    gap: 1rem !important;
+  }
+  .footer-info .container div {
+    flex: 25%;
+  }
+}
+@media (max-width: 600px) {
+  .main-blog .blog-container:nth-last-of-type(1), .main-blog .blog-container:nth-last-of-type(3) {
     display: none !important;
   }
 }/*# sourceMappingURL=style.css.map */
