@@ -1,0 +1,31 @@
+COMPLETE CODE - CSS JS
+
+
+
+
+
+javascript:
+
+---
+AJAX
+
+Fetch API 
+
+Json 
+
+local/session Storage
+
+Class
+
+Module
+---
+
+
+
+---
+
+Typescript
+
+ANGULAR
+
+---

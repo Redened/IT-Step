@@ -42,13 +42,13 @@ p {
 
 $theme-color-red: #ff3c40;
 $theme-color-red-hover: #ff5053;
-$theme-color-red-active: #ff2225;
+$theme-color-red-active: #ff2e32;
 $theme-color-blue: #0079fe;
 $theme-color-blue-hover: #268fff;
-$theme-color-blue-active: #0048fe;
+$theme-color-blue-active: #2260fd;
 $theme-color-gray: #c6c6c6;
 
-@mixin flex($J: center, $D: row, $A: center, $G: 0rem, $W: nowrap, $F: "") {
+@mixin flex($J: center, $D: row, $A: center, $G: 0rem, $W: nowrap, $F: 0 1 auto) {
     display: flex;
     align-items: $A;
     justify-content: $J;
@@ -67,7 +67,7 @@ header {
     position: relative;
     z-index: 1;
     background: url(assets/Header-bg.jpg) center/cover no-repeat;
-    min-height: 45rem; // 52.5rem // 75rem
+    min-height: 45rem;
 
     &::before {
         content: "";
@@ -231,7 +231,7 @@ header {
 
     .header-content {
         @include flex;
-        width: min(1065px, 90%);
+        width: min(950px, 90%);
         background-color: hsla(0, 0%, 0%, 0.45);
         color: #fff;
         fill: #fff;
@@ -254,7 +254,7 @@ header {
                 margin-bottom: 20px;
             }
 
-            > div {
+            div {
                 @include flex;
 
                 button {
@@ -277,25 +277,35 @@ header {
                     }
                 }
 
-                svg {
-                    width: 30px;
-                    height: auto;
-                    fill: #fff;
-                    cursor: pointer;
-                    margin-left: 1rem;
-                    margin-right: 0.5rem;
+                div {
+                    svg {
+                        width: 30px;
+                        height: auto;
+                        fill: #fff;
+                        cursor: pointer;
+                        margin-left: 1rem;
+                        margin-right: 0.5rem;
+                    }
 
-                    &:hover {
+                    a {
+                        color: hsla(0, 0%, 100%, 0.75);
+                    }
+
+                    &:hover svg {
                         fill: $theme-color-red-hover;
                     }
 
-                    &:active {
+                    &:active svg {
                         fill: $theme-color-red-active;
                     }
-                }
 
-                a {
-                    color: hsla(0, 0%, 100%, 0.75);
+                    &:hover a {
+                        color: $theme-color-red-hover;
+                    }
+
+                    &:active a {
+                        color: $theme-color-red-active;
+                    }
                 }
             }
         }
@@ -368,7 +378,7 @@ main {
 
         .container {
             @include flex;
-            width: min(1065px, 90%);
+            width: min(950px, 90%);
 
             .about-us-visual {
                 @include flex($J: flex-end, $F: 50%);
@@ -381,7 +391,7 @@ main {
                     object-fit: cover;
                 }
 
-                > div {
+                div {
                     @include flex($A: flex-end);
                     position: absolute;
                     width: 12.5rem;
@@ -424,13 +434,13 @@ main {
                 }
 
                 h2 {
-                    margin-bottom: 10px;
+                    margin-bottom: 15px;
                 }
 
                 p {
                     color: hsl(0, 0%, 40%);
                     font-size: 0.9rem;
-                    margin-bottom: 20px;
+                    margin-bottom: 25px;
                 }
 
                 > div {
@@ -438,16 +448,17 @@ main {
                     margin-bottom: 1rem;
 
                     > div {
-                        @include flex;
+                        @include flex($A: flex-start);
 
                         svg {
                             flex: 20%;
-                            width: 50px;
                             fill: $theme-color-red;
-                            margin-right: 0.75rem;
+                            width: 50px;
+                            height: auto;
+                            margin-right: 1rem;
                         }
 
-                        > div {
+                        div {
                             flex: 80%;
 
                             h4 {
@@ -500,7 +511,7 @@ main {
             width: 100%;
             height: 100%;
             background: url(assets/Services-bg.jpg) center/cover no-repeat;
-            opacity: 0.25;
+            opacity: 0.1;
             z-index: -1;
         }
 
@@ -513,7 +524,7 @@ main {
         }
 
         .container {
-            width: min(1065px, 90%);
+            width: min(950px, 90%);
             display: grid;
             gap: 1.5rem;
             grid-template-areas:
@@ -560,9 +571,10 @@ main {
 
                     > div {
                         @include flex($J: space-between);
+                        margin-bottom: 10px;
 
                         svg {
-                            width: 35px;
+                            width: 45px;
                             height: auto;
                             fill: $theme-color-red;
                         }
@@ -577,13 +589,14 @@ main {
 
                     p {
                         color: hsl(0, 0%, 50%);
+                        font-size: 0.9rem;
                     }
                 }
 
                 &::after {
                     content: "";
                     position: absolute;
-                    bottom: 0;
+                    bottom: -1;
                     width: 100%;
                     height: 2px;
                     background-color: red;
@@ -637,7 +650,7 @@ main {
             content: "";
             position: absolute;
             inset: 0;
-            background: hsla(0, 0%, 0%, 0.65);
+            background: hsla(0, 0%, 0%, 0.725);
             z-index: -1;
         }
 
@@ -693,7 +706,7 @@ main {
             @include flex($J: space-between);
             position: absolute;
             bottom: -50px;
-            width: min(1065px, 95%);
+            width: min(950px, 95%);
             padding: 1.75rem 2.75rem;
             background-color: #fff;
             color: #000;
@@ -704,8 +717,9 @@ main {
                 width: min(10rem, 100%);
 
                 svg {
-                    width: 40px;
+                    width: 57.5px;
                     fill: $theme-color-blue;
+                    margin-right: 5px;
                 }
 
                 span {
@@ -743,7 +757,7 @@ main {
 
         .container {
             @include flex($G: 1.5rem, $A: stretch);
-            width: min(1065px, 90%);
+            width: min(950px, 90%);
 
             .request-form {
                 @include flex($D: column, $A: stretch, $J: flex-start, $G: 1.25rem, $F: 67.5%);
@@ -799,15 +813,20 @@ main {
                     @include flex($J: flex-start);
                     margin: 0.5rem 0;
 
-                    input {
-                        width: 12px;
-                        height: auto;
-                        margin-right: 5px;
-                    }
+                    div {
+                        @include flex($D: row);
+                        width: max-content;
 
-                    label {
-                        margin-right: 20px;
-                        color: hsl(0, 0%, 45%);
+                        input {
+                            width: 15px;
+                            height: auto;
+                            margin-right: 5px;
+                        }
+
+                        label {
+                            margin-right: 20px;
+                            color: hsl(0, 0%, 45%);
+                        }
                     }
                 }
 
@@ -899,8 +918,8 @@ main {
         background-color: #f3fbfe;
 
         .container {
-            @include flex($J: space-between);
-            width: min(1065px, 90%);
+            @include flex($J: space-between, $A: flex-end);
+            width: min(950px, 90%);
             margin-bottom: 5rem;
 
             h4 {
@@ -993,7 +1012,7 @@ main {
 
         .container {
             @include flex($J: space-between);
-            width: min(1065px, 90%);
+            width: min(950px, 90%);
 
             > div {
                 @include flex;
@@ -1057,7 +1076,7 @@ main {
 
         .container {
             @include flex($G: 1.5rem);
-            width: min(1065px, 90%);
+            width: min(950px, 90%);
 
             .blog-container {
                 @include flex($D: column);
@@ -1150,7 +1169,7 @@ main {
         padding: 1.5rem 0 2.75rem;
 
         .container {
-            width: min(1065px, 90%);
+            width: min(950px, 90%);
 
             h4 {
                 margin-bottom: 7.5px;
@@ -1184,11 +1203,11 @@ footer {
     .footer-content {
         @include flex($G: 2.5rem, $A: flex-start);
         color: #fff;
-        width: min(1065px, 90%);
+        width: min(950px, 90%);
         padding: 4.5rem 0;
 
         .footer-logo-socials {
-            flex: 33.3%;
+            flex: 30%;
 
             h2 {
                 color: $theme-color-red;
@@ -1196,7 +1215,7 @@ footer {
             }
 
             p {
-                font-size: 0.85rem;
+                font-size: 0.9rem;
                 color: hsla(0, 0%, 100%, 0.5);
                 margin-bottom: 15px;
             }
@@ -1228,17 +1247,17 @@ footer {
 
         .footer-links {
             @include flex($G: 0.75rem, $D: column, $A: flex-start);
-            flex: 33.3%;
+            flex: 40%;
 
             .link-container {
-                @include flex($J: flex-start, $G: 5rem);
-                width: 100%;
+                @include flex($J: flex-start, $G: 2rem);
 
                 > div {
-                    @include flex($G: 0.75rem, $D: column, $J: space-between);
+                    @include flex($G: 0.75rem, $D: column, $A: flex-start, $J: flex-start);
 
                     a {
                         color: hsla(0, 0%, 100%, 0.5);
+                        font-size: 0.9rem;
 
                         &:hover {
                             color: hsla(0, 0%, 100%, 0.65);
@@ -1253,7 +1272,7 @@ footer {
         }
 
         .footer-newsletter {
-            flex: 33.3%;
+            flex: 30%;
 
             h2 {
                 margin-bottom: 15px;
@@ -1261,6 +1280,7 @@ footer {
 
             p {
                 color: hsla(0, 0%, 100%, 0.5);
+                font-size: 0.9rem;
                 margin-bottom: 15px;
             }
 
@@ -1317,7 +1337,7 @@ footer {
 
         .container {
             @include flex($J: space-between);
-            width: min(1065px, 90%);
+            width: min(950px, 90%);
 
             > div {
                 @include flex;
@@ -1425,6 +1445,7 @@ footer {
     }
 
     .header-content {
+        width: min(1065px, 100%) !important;
         margin: 7.5rem 0 2.5rem !important;
         flex-direction: column !important;
         align-items: flex-end !important;
@@ -1533,7 +1554,8 @@ footer {
         .container {
             flex-direction: column !important;
 
-            h2, p {
+            h2,
+            p {
                 text-align: center !important;
             }
         }
@@ -1571,7 +1593,7 @@ footer {
             }
         }
     }
-    
+
     .footer-copyright {
         text-align: center !important;
     }
@@ -1590,7 +1612,8 @@ footer {
 
 @media (max-width: 600px) {
     .main-blog {
-        .blog-container:nth-last-of-type(1), .blog-container:nth-last-of-type(3)  {
+        .blog-container:nth-last-of-type(1),
+        .blog-container:nth-last-of-type(3) {
             display: none !important;
         }
     }

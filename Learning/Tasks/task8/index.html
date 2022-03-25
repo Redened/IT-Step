@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+
+        <link rel="stylesheet" href="node_modules/nouislider/dist/nouislider.min.css" />
+        <link rel="stylesheet" href="node_modules/swiper/swiper-bundle.min.css" />
+
+        <script defer src="node_modules/swiper/swiper-bundle.min.js"></script>
+        <script defer src="node_modules/nouislider/dist/nouislider.min.js"></script>
+        <script defer src="node_modules/fslightbox/index.js"></script>
+
+        <script
+            defer
+            src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+            integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        ></script>
+        <script defer src="app.js"></script>
+
+        <style>
+            body {
+                margin: 0;
+                padding: 1rem;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                gap: 5rem;
+            }
+            
+            .lightgallery-js {
+                display: flex;
+                gap: 1rem;
+            }
+
+            #slider {
+                min-width: 25rem;
+                height: 10px;
+                padding: 0;
+                margin: 1rem 0;
+            }
+
+            #slider .noUi-connect {
+                background: mediumseagreen;
+            }
+
+            #slider .noUi-handle {
+                height: 18px;
+                width: 18px;
+                top: -5px;
+                right: -9px;
+                border-radius: 9px;
+            }
+
+            .slider-styled .noUi-handle .noUi-touch-area {
+                border: 1px solid transparent;
+                position: absolute;
+                top: -10px;
+                left: -10px;
+                right: -10px;
+                bottom: -10px;
+                width: auto;
+                height: auto;
+            }
+
+            #slider .noUi-handle::before,
+            #slider .noUi-handle::after {
+                display: none;
+            }
+
+            #slider,
+            #slider .noUi-handle {
+                box-shadow: none;
+            }
+
+            .swiper-js {
+                width: 100%;
+            }
+
+            .swiper {
+                width: 100%;
+                height: 400px;
+            }
+            
+            .swiper-slide {
+                background-color: mediumseagreen
+            }
+        </style>
+    </head>
+    <body>
+        <div class="lightgallery-js">
+            <a data-fslightbox="gallery" href="../../Assets/img6.jpg">
+                <img src="../../Assets/img6.jpg" width="100%" height="100%" alt="as" />
+            </a>
+            <a data-fslightbox="gallery" href="../../Assets/img8.jpg">
+                <img src="../../Assets/img8.jpg" width="100%" height="100%" alt="as" />
+            </a>
+            <a data-fslightbox="gallery" href="../../Assets/img9.jpg">
+                <img src="../../Assets/img9.jpg" width="100%" height="100%" alt="as" />
+            </a>
+        </div>
+        <div class="slider-js">
+            <div id="slider"></div>
+            <div id="slider-value"></div>
+        </div>
+        <div class="swiper-js">
+            <div class="swiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide"></div>
+                    <div class="swiper-slide"></div>
+                    <div class="swiper-slide"></div>
+                </div>
+                <div class="swiper-pagination"></div>
+
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+            </div>
+        </div>
+    </body>
+</html>
